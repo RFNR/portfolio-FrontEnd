@@ -66,17 +66,6 @@
     margin-left: 20px;
     position: relative;
 }
-.curriculum .fila .der .icono-empresa{
-    width: 4rem;
-    height: 4rem;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-}
-.curriculum .fila .der .icono-empresa img{
-    width: 100%;
-    height: auto;
-}
 .curriculum .fila .item .conectori{
     height: 2px;
     background-color: #1CB698;

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactoService } from '../../../services/contacto.service';
 
 @Component({
   selector: 'app-contacto',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
+
+  constructor(private contactoService: ContactoService){
+  }
+
+  linkIframe = this.contactoService.obtenerMapa();;
 
 }

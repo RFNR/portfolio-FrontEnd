@@ -1,0 +1,50 @@
+<div
+  class="modal fade"
+  id="experiencia"
+  tabindex="-1"
+  aria-labelledby="experienciaLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="experienciaLabel">
+          Ingresar experiencia:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Cargo"
+          class="container form-control mb-2"
+          #cargo
+        />
+        <input
+          type="text"
+          placeholder="Lugar"
+          class="container form-control mb-2"
+          #lugar
+        />
+        <input
+          type="text"
+          placeholder="Periodo"
+          class="container form-control mb-2"
+          #periodoExperiencia
+        />
+        <textarea class="form-control mb-2 container" placeholder="Descripcion" rows="5" #descripcionExperiencia></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="guardar()">Añadir</button>
+      </div>
+    </div>
+  </div>
+</div>

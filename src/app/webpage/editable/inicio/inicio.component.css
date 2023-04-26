@@ -1,0 +1,105 @@
+.btn-banner{
+    position: absolute;
+    right: 15vh;
+    margin-top: 5vh;
+    font-size: .8rem;
+}
+
+.inicio{
+    background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30, 35, 38, 0.7)),
+    url(../../../../assets/pexels-pixabay-270360.jpg);
+    background-size: cover;
+    height: calc(100vh - 94px);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+.inicio .contenido-banner{
+    padding: 20px;
+    background-color: #1e2326;
+    max-width: 350px;
+    text-align: center;
+    border-radius: 20px;
+}
+.inicio .contenido-banner .contenedor-img{
+    margin-bottom: 40px;
+    position: relative;
+}
+.btn-img{
+    position: absolute;
+    bottom: 0;
+   right: 0;
+    font-size: .8rem;
+}
+.inicio .contenido-banner img{
+    margin-top: 40px;
+    border: 10px solid #1CB698;
+    display: block;
+    width: 80%;
+    margin: auto;
+    border-radius: 50%;
+}
+.inicio .contenido-banner .datos{
+    position: relative;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.btn-datos{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    font-size: .8rem;
+}
+.inicio .contenido-banner h1{
+    padding: 10px 0;
+    font-size: 42px;
+    font-family: 'Righteous';
+}
+.inicio .contenido-banner h2{
+    font-size: 15px;
+    font-weight: normal;
+}
+.inicio .contenido-banner .redes{
+    position: relative;
+    border-radius: 10px;
+}
+.btn-redes{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .8rem;
+}
+.inicio .contenido-banner .redes a{
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    margin: 20px 5px;
+    font-size: 20px;
+    transition: .3s;
+}
+
+@media screen and (max-width:700px){
+    .inicio .contenido-banner .datos{
+        text-align: start;
+    }
+    .inicio .contenido-banner{
+        border-radius: 0;
+        width: 100vw;
+        height: auto;
+    }
+}
+
+@media screen and (max-width:1100px){
+    .btn-banner{
+        right: 2vh;
+        margin-top: 2vh;
+        font-size: .8rem;
+    }
+}

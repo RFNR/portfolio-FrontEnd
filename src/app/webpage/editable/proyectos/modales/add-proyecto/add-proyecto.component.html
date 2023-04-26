@@ -1,0 +1,56 @@
+<div
+  class="modal fade"
+  id="add-proyect"
+  tabindex="-1"
+  aria-labelledby="add-proyectLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="add-proyectLabel">
+          Ingresar la informacion de su proyecto:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Nombre"
+          class="container form-control mb-2"
+        />
+        <input
+          type="text"
+          placeholder="Link"
+          class="container form-control mb-2"
+        />
+        <input
+          type="text"
+          placeholder="Descripcion breve"
+          class="container form-control mb-2"
+        />
+        <div class="mb-3">
+          <label for="formFileSm" class="form-label"
+            >Seleccione una imagen para la vista previa del proyecto:</label
+          >
+          <input
+            class="form-control form-control-sm"
+            id="formFileSm"
+            type="file"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

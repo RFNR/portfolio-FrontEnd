@@ -29,7 +29,7 @@
 .skills .skill > span{
     font-weight: bold;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .skills .skill .barra-skill{
     height: 8px;
@@ -56,56 +56,4 @@
     top: -17px;
     right: -15px;
     font-size: 14px;
-}
-/* Estas clases se agregaran dinamicamente mediante typescript */
-.skills .skill .javascript{
-    width: 0%;
-    animation: 2s javascript forwards;
-}
-@keyframes javascript {
-    0%{width: 0%;}
-    100%{width: 50%;}
-}
-
-.skills .skill .htmlcss{
-    width: 0%;
-    animation: 2s htmlcss forwards;
-}
-@keyframes htmlcss {
-    0%{width: 0%;}
-    100%{width: 70%;}
-}
-
-.skills .skill .angular{
-    width: 0%;
-    animation: 2s angular forwards;
-}
-@keyframes angular {
-    0%{width: 0%;}
-    100%{width: 40%;}
-}
-.skills .skill .java{
-    width: 0%;
-    animation: 2s java forwards;
-}
-@keyframes java {
-    0%{width: 0%;}
-    100%{width: 40%;}
-}
-.skills .skill .springboot{
-    width: 0%;
-    animation: 2s springboot forwards;
-}
-@keyframes springboot {
-    0%{width: 0%;}
-    100%{width: 30%;}
-}
-
-.skills .skill .mysql{
-    width: 0%;
-    animation: 2s mysql forwards;
-}
-@keyframes mysql {
-    0%{width: 0%;}
-    100%{width: 50%;}
 }

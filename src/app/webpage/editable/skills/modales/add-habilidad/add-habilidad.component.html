@@ -1,0 +1,54 @@
+<div
+  class="modal fade"
+  id="add-habilidad"
+  tabindex="-1"
+  aria-labelledby="add-habilidadLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="add-habilidadLabel">
+          Ingrese una nueva habilidad:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Nombre de la habilidad"
+          class="container form-control mb-3"
+        />
+
+        <div class="mb-3">
+          <label for="rangeAdd" class="form-label"
+            >Rango de dominacion</label
+          >
+          <div class="d-flex">
+            <input
+              type="range"
+              class="form-range barra"
+              id="rangeAdd"
+              value="0"
+              min="1"
+              max="100"
+              oninput="rangeAddValue.innerText = this.value"
+            />
+            <p class="contador" id="rangeAddValue">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

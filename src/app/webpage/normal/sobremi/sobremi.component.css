@@ -67,7 +67,8 @@
     align-items: center;
     justify-content: center;
     transition: .3s;
-}.sobremi .fila .col .contenedor-intereses .interes:hover{
+}
+.sobremi .fila .col .contenedor-intereses .interes:hover{
     background-color: #1CB698;
 }
 .sobremi .fila .col .contenedor-intereses .interes i{
@@ -77,19 +78,7 @@
 .sobremi .fila .col .contenedor-intereses .interes .bi{
     font-size: 30px !important;
 }
-.sobremi button{
-    cursor: pointer;
-    background-color: transparent;
-    border: 2px solid #fff;
-    width: fit-content;
-    display: block;
-    margin: 20px auto;
-    padding: 10px 22px;
-    font-size: 16px;
-    color: #fff;
-    position: relative;
-    z-index: 10;
-}
+
 @media screen and (max-width:700px){
     .sobremi .fila{
         display: block;

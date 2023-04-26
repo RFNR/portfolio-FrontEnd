@@ -2,58 +2,12 @@
     <div class="contenido-seccion">
         <h2>PROYECTOS</h2>
         <div class="galeria">
-            <div class="proyecto">
-                <img src="../../../../assets/p1.jpg" alt="">
+            <div class="proyecto" *ngFor="let proyecto of proyectos">
+                <img src="{{proyecto.img}}" alt="">
                 <a href="">
                     <div class="overlay">
-                        <h3>Proximamente</h3>
-                        <p>...</p>
-                    </div>
-                </a>
-            </div>
-            <div class="proyecto">
-                <img src="./../../../assets/p2.jpg" alt="">
-                <a href="">
-                    <div class="overlay">
-                        <h3>Proximamente</h3>
-                        <p>...</p>
-                    </div>
-                </a>
-
-            </div>
-            <div class="proyecto">
-                <img src="./../../../assets/p3.jpg" alt="">
-                <a href="">
-                    <div class="overlay">
-                        <h3>Proximamente</h3>
-                        <p>...</p>
-                    </div>
-                </a>
-            </div>
-            <div class="proyecto">
-                <img src="./../../../assets/p4.jpg" alt="">
-                <a href="">
-                    <div class="overlay">
-                        <h3>Proximamente</h3>
-                        <p>...</p>
-                    </div>
-                </a>
-            </div>
-            <div class="proyecto">
-                <img src="./../../../assets/p5.jpg" alt="">
-                <a href="">
-                    <div class="overlay">
-                        <h3>Proximamente</h3>
-                        <p>...</p>
-                    </div>
-                </a>
-            </div>
-            <div class="proyecto">
-                <img src="./../../../assets/p6.jpg" alt="">
-                <a href="">
-                    <div class="overlay">
-                        <h3>Proximamente</h3>
-                        <p>...</p>
+                        <h3>{{proyecto.nombre}}</h3>
+                        <p>{{proyecto.descripcion}}</p>
                     </div>
                 </a>
             </div>

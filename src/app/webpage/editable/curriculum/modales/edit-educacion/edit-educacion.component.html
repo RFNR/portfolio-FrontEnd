@@ -1,0 +1,53 @@
+<div
+  class="modal fade"
+  id="edit-educacion"
+  tabindex="-1"
+  aria-labelledby="edit-educacionLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit-educacionLabel">
+         Edite su informacion:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Titulo"
+          class="container form-control mb-2"
+          value="{{valoresPorDefecto.area}}"
+          #tituloEdit
+        />
+        <input
+          type="text"
+          placeholder="Establecimiento"
+          class="container form-control mb-2"
+          value="{{valoresPorDefecto.establecimiento}}"
+          #establecimientoEdit
+        />
+        <input
+          type="text"
+          placeholder="Periodo"
+          class="container form-control mb-2"
+          value="{{valoresPorDefecto.periodo}}"
+          #periodoEducacionEdit
+        />
+        <textarea class="form-control mb-2 container" placeholder="Descripcion" rows="5" value="{{valoresPorDefecto.descripcion}}" #descripcionEducacionEdit></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

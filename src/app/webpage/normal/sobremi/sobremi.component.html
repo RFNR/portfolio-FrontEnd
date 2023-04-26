@@ -1,20 +1,7 @@
 <section id="sobremi" class="sobremi">
     <div class="contenido-seccion">
         <h2>Sobre Mí</h2>
-        <p><span>Hola, soy Ronald Nogales, tengo 25 años y soy de Córdoba.</span> Soy desarrollador web full stack.
-            Me apasiona crear soluciones digitales únicas y personalizadas a través del arte y la ciencia de la
-            programación.<br>
-            Mi dedicación a la programación me ha permitido adquirir habilidades para transformar conceptos
-            abstractos en soluciones concretas y efectivas. Como desarrollador web full stack, soy consciente de la
-            importancia de crear sitios web y aplicaciones que no solo sean funcionales, sino también seguros y
-            escalables.<br>
-            Creo firmemente en la importancia de aprender y crecer en mi carrera, y estoy comprometido a mantenerme
-            actualizado con las últimas tecnologías y tendencias del mercado para ofrecer siempre la mejor solución
-            para mis clientes y usuarios finales.<br>
-            Soy consciente de que la tecnología tiene el poder de cambiar el mundo, y estoy emocionado de ser parte
-            de este cambio a través de mi trabajo. Mi objetivo es seguir explorando nuevas posibilidades en el campo
-            de la programación. Espero te guste este sitio web. Saludos!
-        </p>
+        <p class="mb-4">{{infoSobreMi}}</p>
 
         <div class="fila">
             <!-- datos personales -->
@@ -48,25 +35,10 @@
             <div class="col">
                 <h3>Intereses</h3>
                 <div class="contenedor-intereses">
-                    <div class="interes">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>JUEGOS</span>
-                    </div>
-                    <div class="interes">
-                        <i class="fa-solid fa-headphones"></i>
-                        <span>MUSICA</span>
-                    </div>
-                    <div class="interes">
-                        <i class="fa-solid fa-plane"></i>
-                        <span>VIAJAR</span>
-                    </div>
-                    <div class="interes">
-                        <i class="fa-solid fa-person-hiking"></i>
-                        <span>DEPORTE</span>
-                    </div>
-                    <div class="interes">
-                        <i class="fa-solid fa-car"></i>
-                        <span>AUTOS</span>
+
+                    <div class="interes" *ngFor="let actividad of intereses">
+                        <i class="{{actividad.icono}}"></i>
+                        <span>{{actividad.interes}}</span>
                     </div>
 
                 </div>

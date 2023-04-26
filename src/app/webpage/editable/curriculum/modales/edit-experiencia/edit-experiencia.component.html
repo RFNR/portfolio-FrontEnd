@@ -1,0 +1,53 @@
+<div
+  class="modal fade"
+  id="edit-experiencia"
+  tabindex="-1"
+  aria-labelledby="edit-experienciaLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit-experienciaLabel">
+          Edite esta experiencia:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Cargo"
+          class="container form-control mb-2"
+          value="{{valoresPorDefecto.cargo}}"
+          #cargoEdit
+        /> 
+        <input
+          type="text"
+          placeholder="Lugar"
+          class="container form-control mb-2"
+          value="{{valoresPorDefecto.lugar}}"
+          #lugarEdit
+        />
+        <input
+          type="text"
+          placeholder="Periodo"
+          class="container form-control mb-2"
+          value="{{valoresPorDefecto.periodo}}"
+          #periodoExperienciaEdit
+        />
+        <textarea class="form-control mb-2 container" placeholder="Descripcion" rows="5" value="{{valoresPorDefecto.descripcion}}" #descripcionExperienciaEdit></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

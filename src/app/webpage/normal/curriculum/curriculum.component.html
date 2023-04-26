@@ -4,29 +4,11 @@
         <div class="fila">
             <div class="col izquierda">
                 <h3>Educación</h3>
-                <div class="item izq">
-                    <h4>Secundario</h4>
-                    <span class="casa">Instituto Olegario Victor Andrade</span>
-                    <span class="fecha">2008 - 20015</span>
-                    <p>Egrese con el titulo de bachiller en administracion y economia</p>
-                    <div class="conectori">
-                        <div class="circuloi"></div>
-                    </div>
-                </div>
-                <div class="item izq">
-                    <h4>Ingenieria</h4>
-                    <span class="casa">Universidad Nacional de Córdoba</span>
-                    <span class="fecha">2017 - 2029</span>
-                    <p>Curse 3 años Ingeniera en Computacion</p>
-                    <div class="conectori">
-                        <div class="circuloi"></div>
-                    </div>
-                </div>
-                <div class="item izq">
-                    <h4>Ingenieria</h4>
-                    <span class="casa">Universidad Nacional de Córdoba</span>
-                    <span class="fecha">2020 - Actualidad</span>
-                    <p>Actualmente cursando Ingenieria Civil</p>
+                <div class="item izq" *ngFor="let estudio of educacion">
+                    <h4> {{estudio.area}} </h4>
+                    <span class="casa"> {{estudio.establecimiento}} </span>
+                    <span class="fecha"> {{estudio.periodo}} </span>
+                    <p> {{estudio.descripcion}} </p>
                     <div class="conectori">
                         <div class="circuloi"></div>
                     </div>
@@ -35,15 +17,11 @@
 
             <div class="col derecha">
                 <h3>Experiencia</h3>
-                <div class="item der">
-                    <h4>Front Developer</h4>
-                    <div class="icono-empresa">
-                        <img src="../../../../assets/freecodecamp.png" alt="">
-                    </div>
-                    <span class="casa">FreeCodeCamp</span>
-                    <span class="fecha">1 mes</span>
-                    <p>Desarrolle los proyectos propuestos en la pagina y asi obtuve el titulo de Responsive Web
-                        Desing</p>
+                <div class="item der" *ngFor="let trabajo of experiencia">
+                    <h4> {{trabajo.cargo}} </h4>
+                    <span class="casa"> {{trabajo.lugar}} </span>
+                    <span class="fecha"> {{trabajo.periodo}} </span>
+                    <p> {{trabajo.descripcion}} </p>
                     <div class="conectord">
                         <div class="circulod"></div>
                     </div>

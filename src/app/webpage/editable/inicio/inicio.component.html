@@ -1,0 +1,65 @@
+<button
+  type="button"
+  class="btn btn-primary btn-banner"
+  data-bs-toggle="modal"
+  data-bs-target="#banner"
+>
+  <i class="bi bi-image"></i> Editar
+</button>
+<section class="inicio">
+  <div class="contenido-banner">
+    <div class="contenedor-img">
+      <button
+        type="button"
+        class="btn btn-primary btn-img"
+        data-bs-toggle="modal"
+        data-bs-target="#perfil"
+      >
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+      <img
+        src="../../../../assets/165054118_3609200115845049_5935957942657908537_n.jpg"
+        alt=""
+      />
+    </div>
+    <div class="datos">
+      <button
+        type="button"
+        class="btn btn-primary btn-datos"
+        data-bs-toggle="modal"
+        data-bs-target="#nombre"
+      >
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+      <h1>{{ nombre }}</h1>
+      <h2>{{ profesion }}</h2>
+    </div>
+
+    <div class="redes">
+      <button
+        type="button"
+        class="btn btn-primary btn-redes"
+        data-bs-toggle="modal"
+        data-bs-target="#redes"
+      >
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+      <a><i class="fa-brands fa-facebook-f iconos"></i></a>
+      <a><i class="fa fa-instagram" aria-hidden="true"></i></a>
+      <a><i class="fa-brands fa-linkedin-in iconos"></i></a>
+      <a><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Modal banner banner -->
+<app-edit-banner></app-edit-banner>
+
+<!-- Modal perfil -->
+<app-edit-perfil></app-edit-perfil>
+
+<!-- Modal nombre y descripcion -->
+<app-edit-datos></app-edit-datos>
+
+<!-- Modal redes sociales -->
+<app-edit-redes></app-edit-redes>

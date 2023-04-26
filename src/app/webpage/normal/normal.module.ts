@@ -27,7 +27,8 @@ import { FooterComponent } from './footer/footer.component';
     CommonModule
   ], 
   exports:[
-    NormalComponent
+    NormalComponent,
+    FooterComponent
   ]
 })
 export class NormalModule { }

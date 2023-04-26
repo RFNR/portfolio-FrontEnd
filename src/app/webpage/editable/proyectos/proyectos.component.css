@@ -1,0 +1,83 @@
+.portfolio{
+    background-color: #1e2326;
+    color: #fff;
+    padding: 50px 20px;
+}
+.portfolio .contenido-seccion{
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+}
+.portfolio h2{
+    font-size: 48px;
+    font-family: 'Righteous';
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+}
+.btn-add{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    font-size: 0.8rem;
+}
+.portfolio .galeria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.portfolio .galeria .proyecto{
+    position: relative;
+    max-width: 340px;
+    height: fit-content;
+    margin: 10px;
+}
+.btn-editar{
+    position: absolute;
+    font-size: .8rem;
+    top: 20px;
+    right: 60px;
+}
+.btn-eliminar{
+    position: absolute;
+    font-size: .8rem;
+    top: 20px;
+    right: 10px;
+}
+.portfolio .galeria .proyecto img{
+    width: 100%;
+    display: block;
+}
+.nombre{
+    position: absolute;
+    font-size: 1.5rem;
+    width: 100%;
+    height: min-content;
+    border-radius: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+@media screen and (max-width:775px){
+    .boton{
+        position: static;
+        margin-bottom: 20px;
+    }
+    .btn-add{
+        position: static;
+        display: block;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width:700px){
+    .portfolio .galeria{
+        display: block;
+        width: 100%;
+    }
+    .portfolio .galeria .proyecto{
+        max-width: 100%;
+    }
+    .portfolio .galeria .proyecto img{
+        width: 100%;
+    }
+}
