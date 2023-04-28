@@ -1,27 +1,34 @@
-.btn-banner{
-    position: absolute;
-    right: 15vh;
-    margin-top: 5vh;
-    font-size: .8rem;
-}
-
 .inicio{
-    background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30, 35, 38, 0.7)),
-    url(../../../../assets/pexels-pixabay-270360.jpg);
-    background-size: cover;
     height: calc(100vh - 94px);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .inicio .contenido-banner{
+    position: relative;
     padding: 20px;
     background-color: #1e2326;
     max-width: 350px;
     text-align: center;
     border-radius: 20px;
+}
+.btn-banner{
+    position: absolute;
+    right: -100px;
+    top: -32px;
+    font-size: .8rem;
+    cursor: pointer;
 }
 .inicio .contenido-banner .contenedor-img{
     margin-bottom: 40px;
@@ -30,7 +37,7 @@
 .btn-img{
     position: absolute;
     bottom: 0;
-   right: 0;
+    right: 0;
     font-size: .8rem;
 }
 .inicio .contenido-banner img{
@@ -90,16 +97,19 @@
         text-align: start;
     }
     .inicio .contenido-banner{
-        border-radius: 0;
+        border-radius: 20px;
         width: 100vw;
         height: auto;
+        padding-bottom: 0;
+        padding-top: 40px;
     }
-}
-
-@media screen and (max-width:1100px){
+    .inicio .contenido-banner .contenedor-img{
+        margin-bottom: 20px;
+        position: relative;
+    }
     .btn-banner{
-        right: 2vh;
-        margin-top: 2vh;
+        right: 5px;
+        margin-top: 40px;
         font-size: .8rem;
     }
 }

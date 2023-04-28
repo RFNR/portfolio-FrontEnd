@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { InicioService } from 'src/app/services/inicio.service';
 import { LinksService } from 'src/app/services/links.service';
 
 @Component({
@@ -8,14 +9,28 @@ import { LinksService } from 'src/app/services/links.service';
 })
 export class InicioComponent {
 
-  nombre = "RONALD NOGALES";
-  profesion = "Desarrollador Web Full Stack";
+  banner: string = this.inicioService.banner; 
+  nombre = this.inicioService.nombre;
+  profesion = this.inicioService.profesion;
+  perfil: string = this.inicioService.perfil;
 
-  constructor(private redesSociales: LinksService){}
+  @ViewChild('fotoDePerfil') fotoDePerfil!: ElementRef<HTMLImageElement>;
+  @ViewChild('fotoDeBanner') fotoDeBanner!: ElementRef<HTMLImageElement>;
+  @ViewChild('nombreDatoPersonalInicio') nombreDatoPersonalInicio!: ElementRef<HTMLHeadingElement>;
+  @ViewChild('profesionDatoPersonalInicio') profesionDatoPersonalInicio!: ElementRef<HTMLHeadingElement>;
 
-  facebook: String = this.redesSociales.links.facebook
-  instagram: String = this.redesSociales.links.instagram
-  linkedin: String = this.redesSociales.links.linkedin
-  correo: String = this.redesSociales.links.correo_electronico
+  constructor(private inicioService: InicioService){
+  }
 
+  recibirDatosPerfil(event: string){
+    this.fotoDePerfil.nativeElement.src = event;
+  }
+  recibirDatosBanner(event: string){
+    this.fotoDeBanner.nativeElement.src = event;
+  }
+
+  eventoParaActualizacion(str: any){
+    this.nombreDatoPersonalInicio.nativeElement.textContent = this.inicioService.nombre;
+    this.profesionDatoPersonalInicio.nativeElement.textContent = this.inicioService.profesion;
+  }
 }

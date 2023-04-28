@@ -1,13 +1,14 @@
-<button
-  type="button"
-  class="btn btn-primary btn-banner"
-  data-bs-toggle="modal"
-  data-bs-target="#banner"
->
-  <i class="bi bi-image"></i> Editar
-</button>
 <section class="inicio">
+  <img [src]="banner" alt="" class="banner" #fotoDeBanner>
   <div class="contenido-banner">
+    <button
+      type="button"
+      class="btn btn-primary btn-banner"
+      data-bs-toggle="modal"
+      data-bs-target="#banner"
+    >
+      <i class="bi bi-image"></i> Editar
+    </button>
     <div class="contenedor-img">
       <button
         type="button"
@@ -18,8 +19,9 @@
         <i class="bi bi-pencil-fill"></i>
       </button>
       <img
-        src="../../../../assets/165054118_3609200115845049_5935957942657908537_n.jpg"
-        alt=""
+        [src]="perfil"
+        alt="Foto de perfil"
+        #fotoDePerfil
       />
     </div>
     <div class="datos">
@@ -31,8 +33,8 @@
       >
         <i class="bi bi-pencil-fill"></i>
       </button>
-      <h1>{{ nombre }}</h1>
-      <h2>{{ profesion }}</h2>
+      <h1 #nombreDatoPersonalInicio>{{ nombre }}</h1>
+      <h2 #profesionDatoPersonalInicio>{{ profesion }}</h2>
     </div>
 
     <div class="redes">
@@ -52,14 +54,16 @@
   </div>
 </section>
 
+<div id="actualizarBanner"></div>
+
 <!-- Modal banner banner -->
-<app-edit-banner></app-edit-banner>
+<app-edit-banner (enviarDatos)="recibirDatosBanner($event)"></app-edit-banner>
 
 <!-- Modal perfil -->
-<app-edit-perfil></app-edit-perfil>
+<app-edit-perfil (enviarDatos)="recibirDatosPerfil($event)"></app-edit-perfil>
 
 <!-- Modal nombre y descripcion -->
-<app-edit-datos></app-edit-datos>
+<app-edit-datos (eventoParaActualizacion)="eventoParaActualizacion($event)"></app-edit-datos>
 
 <!-- Modal redes sociales -->
 <app-edit-redes></app-edit-redes>

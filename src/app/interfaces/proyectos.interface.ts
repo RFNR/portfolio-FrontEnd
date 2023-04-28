@@ -1,5 +1,6 @@
 export interface Proyectos{
-    img: String,
+    img: string,
     nombre: String,
-    descripcion: String
+    descripcion: String,
+    link: String
 }

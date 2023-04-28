@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProyectosService } from 'src/app/services/proyectos.service';
 
 @Component({
   selector: 'app-delete-proyecto',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete-proyecto.component.css']
 })
 export class DeleteProyectoComponent {
-
+  constructor(private proyectosService: ProyectosService){}
+  eliminar(){
+    this.proyectosService.eliminarProyecto();
+  }
 }

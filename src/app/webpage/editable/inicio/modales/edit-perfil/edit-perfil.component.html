@@ -27,6 +27,7 @@
             class="form-control form-control-sm"
             id="formFileSm"
             type="file"
+            (change)="imagenObtenida($event)"
           />
         </div>
       </div>
@@ -34,7 +35,7 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
   selector: 'app-delete-habilidad',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete-habilidad.component.css']
 })
 export class DeleteHabilidadComponent {
+  constructor(private skillsService: SkillsService){}
+  eliminar(){
+    this.skillsService.eliminar();
+  }
 
 }

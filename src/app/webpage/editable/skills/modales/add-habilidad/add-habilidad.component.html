@@ -23,6 +23,7 @@
           type="text"
           placeholder="Nombre de la habilidad"
           class="container form-control mb-3"
+          #nombreHabilidad
         />
 
         <div class="mb-3">
@@ -35,19 +36,20 @@
               class="form-range barra"
               id="rangeAdd"
               value="0"
-              min="1"
+              min="0"
               max="100"
-              oninput="rangeAddValue.innerText = this.value"
+              (input)="cambiosEnElInput($event)"
+              #rango
             />
-            <p class="contador" id="rangeAddValue">0</p>
+            <p class="contadorBarra">{{valorDeRango}}</p>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>
       </div>
     </div>
   </div>

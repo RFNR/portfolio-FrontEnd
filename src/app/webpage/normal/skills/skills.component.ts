@@ -1,5 +1,6 @@
 import { Component, ElementRef, Renderer2, HostListener } from '@angular/core';
 import { Habilidades } from 'src/app/interfaces/habilidades.interface';
+import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,51 +8,17 @@ import { Habilidades } from 'src/app/interfaces/habilidades.interface';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent {
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
-  habilidades: Habilidades[] = [
-    {
-      nombre: 'Javascript',
-      porcentaje: '50%',
-    },
-    {
-      nombre: 'HTML CSS',
-      porcentaje: '70%',
-    },
-    {
-      nombre: 'Angular',
-      porcentaje: '40%',
-    },
-    {
-      nombre: 'Java',
-      porcentaje: '40%',
-    },
-    {
-      nombre: 'Spring Boot',
-      porcentaje: '30%',
-    },
-    {
-      nombre: 'MySql',
-      porcentaje: '50%',
-    },
-  ];
+  
+  constructor(private el: ElementRef, private skillsService: SkillsService) {
+  }
+
+  habilidades: Habilidades[] = this.skillsService.habilidades;
 
   obtenerHabilidades(): String[] {
-    let habilidades: String[] = [];
-    for (let i = 0; this.habilidades.length > i; i++) {
-      habilidades.push(
-        this.habilidades[i].nombre.toLocaleLowerCase().split(' ').join('')
-      );
-    }
-    return habilidades;
+    return this.skillsService.obtenerHabilidades();
   }
   obtenerPorcentajes(): String[] {
-    let habilidades: String[] = [];
-    for (let i = 0; this.habilidades.length > i; i++) {
-      habilidades.push(
-        this.habilidades[i].porcentaje.split(' ').join('')
-      );
-    }
-    return habilidades;
+    return this.skillsService.obtenerPorcentajes();
   }
 
   habilidadesAnimadas = Array(this.habilidades.length);

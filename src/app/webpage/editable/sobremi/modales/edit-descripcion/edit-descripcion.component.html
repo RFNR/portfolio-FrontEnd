@@ -22,15 +22,16 @@
         <textarea
           class="form-control mb-2 container"
           placeholder="Descripcion"
-          id="exampleFormControlTextarea1"
           rows="9"
+          [value]="valorPorDefecto"
+          #textAreaDescripcionSobreMi
         ></textarea>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">
           Guardar
         </button>
       </div>

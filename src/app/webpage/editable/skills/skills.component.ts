@@ -1,5 +1,6 @@
-import { Component, ElementRef, Renderer2, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { Habilidades } from 'src/app/interfaces/habilidades.interface';
+import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,58 +8,45 @@ import { Habilidades } from 'src/app/interfaces/habilidades.interface';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent {
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
-  habilidades: Habilidades[] = [
-    {
-      nombre: 'Javascript',
-      porcentaje: '50%',
-    },
-    {
-      nombre: 'HTML CSS',
-      porcentaje: '70%',
-    },
-    {
-      nombre: 'Angular',
-      porcentaje: '40%',
-    },
-    {
-      nombre: 'Java',
-      porcentaje: '40%',
-    },
-    {
-      nombre: 'Spring Boot',
-      porcentaje: '30%',
-    },
-    {
-      nombre: 'MySql',
-      porcentaje: '50%',
-    },
-  ];
+
+  habilidad: Habilidades = {
+    nombre: '',
+    porcentaje: ''
+  }
+  index: number = 0;
+
+  constructor(private el: ElementRef, private skillsService: SkillsService) {}
+
+  habilidades: Habilidades[] = this.skillsService.habilidades;
 
   obtenerHabilidades(): String[] {
-    let habilidades: String[] = [];
-    for (let i = 0; this.habilidades.length > i; i++) {
-      habilidades.push(
-        this.habilidades[i].nombre.toLocaleLowerCase().split(' ').join('')
-      );
-    }
-    return habilidades;
+    return this.skillsService.obtenerHabilidades();
   }
   obtenerPorcentajes(): String[] {
-    let habilidades: String[] = [];
-    for (let i = 0; this.habilidades.length > i; i++) {
-      habilidades.push(
-        this.habilidades[i].porcentaje.split(' ').join('')
-      );
+    return this.skillsService.obtenerPorcentajes();
+  }
+
+  cambiarIndexEliminar(i: number[]){
+    this.skillsService.index = i;
+  }
+  cambiarIndexEditar(i: number[]){
+    this.skillsService.index = i;
+    this.habilidad = {
+      nombre: this.skillsService.habilidades[i[0]].nombre,
+      porcentaje: this.skillsService.habilidades[i[0]].porcentaje
     }
-    return habilidades;
   }
 
   habilidadesAnimadas = Array(this.habilidades.length);
 
+  activarAnimacion(event: string){
+    this.habilidadesAnimadas = Array(this.skillsService.habilidades.length);
+    this.scrollZone()
+  }
+
   @HostListener('window:scroll', ['$event'])
   scrollZone() {
-
+    
     let skills = this.el.nativeElement.querySelector('#skills');
     let distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
 

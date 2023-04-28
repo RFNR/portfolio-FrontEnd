@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Proyectos } from 'src/app/interfaces/proyectos.interface';
+import { ProyectosService } from 'src/app/services/proyectos.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -8,37 +9,10 @@ import { Proyectos } from 'src/app/interfaces/proyectos.interface';
 })
 export class ProyectosComponent {
 
-  proyectos: Proyectos[] = [
-    {
-      img: "../../../../assets/p1.jpg",
-      nombre: "Proximamente",
-      descripcion: "..."
-    },
-    {
-      img: "../../../../assets/p2.jpg",
-      nombre: "Proximamente",
-      descripcion: "..."
-    },
-    {
-      img: "../../../../assets/p3.jpg",
-      nombre: "Proximamente",
-      descripcion: "..."
-    },
-    {
-      img: "../../../../assets/p4.jpg",
-      nombre: "Proximamente",
-      descripcion: "..."
-    },
-    {
-      img: "../../../../assets/p5.jpg",
-      nombre: "Proximamente",
-      descripcion: "..."
-    },
-    {
-      img: "../../../../assets/p6.jpg",
-      nombre: "Proximamente",
-      descripcion: "..."
-    }
-  ];
+  proyectos: Proyectos[];
+
+  constructor(private proyectosService: ProyectosService){
+    this.proyectos = proyectosService.proyectos
+  }
 
 }

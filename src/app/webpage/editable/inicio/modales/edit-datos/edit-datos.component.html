@@ -9,7 +9,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="nombreLabel">
-          Ingrese su nombre completo y profesion:
+          Edite su nombre completo y profesion:
         </h1>
         <button
           type="button"
@@ -23,18 +23,22 @@
           type="text"
           placeholder="Nombre completo"
           class="container form-control mb-2"
+          [value]="nombre"
+          #nombreIdentificador
         />
         <input
           type="text"
           placeholder="Profesion"
           class="container form-control mb-2"
+          [value]="profesion"
+          #profesionIdentificador
         />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editar()">Guardar</button>
       </div>
     </div>
   </div>

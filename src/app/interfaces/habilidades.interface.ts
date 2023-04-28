@@ -1,5 +1,5 @@
 export interface Habilidades {
-    nombre: String,
-    porcentaje: String
-    classname?: String
+    nombre: string,
+    porcentaje: string
+    classname?: string
 }

@@ -5,3 +5,8 @@ export interface DatosPersonales{
     ubicacion: String,
     cargo: String
 }
+
+export interface Intereses{
+    interes: String,
+    icono: String
+}

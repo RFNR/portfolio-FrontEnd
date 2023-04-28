@@ -26,16 +26,6 @@ export class CurriculumComponent {
   educacion: Educacion[] = this.curriculumService.educacion;
   experiencia: Experiencia[] = this.curriculumService.experiencia;
 
-  modificarIndexExperiencia(i: number[]){
-    this.curriculumService.index[0] = i[0];
-    this.datosEditExperiencia = {
-      cargo: this.curriculumService.experiencia[i[0]].cargo.toString(),
-      lugar: this.curriculumService.experiencia[i[0]].lugar.toString(),
-      periodo: this.curriculumService.experiencia[i[0]].periodo.toString(),
-      descripcion: this.curriculumService.experiencia[i[0]].descripcion.toString()
-    }
-  }
-
   modificarIndexEliminarExperiencia(i: number[]){
     this.curriculumService.index[0] = i[0];
   }
@@ -43,6 +33,7 @@ export class CurriculumComponent {
   modificarIndexEliminarEducacion(i: number[]){
     this.curriculumService.index[0] = i[0];
   }
+
   modificarIndexEducacion(i: number[]){
     this.curriculumService.index[0] = i[0];
     this.datosEditEducacion = {
@@ -50,6 +41,16 @@ export class CurriculumComponent {
       establecimiento: this.curriculumService.educacion[i[0]].establecimiento.toString(),
       periodo: this.curriculumService.educacion[i[0]].periodo.toString(),
       descripcion: this.curriculumService.educacion[i[0]].descripcion.toString()
+    }
+  }
+  
+  modificarIndexExperiencia(i: number[]){
+    this.curriculumService.index[0] = i[0];
+    this.datosEditExperiencia = {
+      cargo: this.curriculumService.experiencia[i[0]].cargo.toString(),
+      lugar: this.curriculumService.experiencia[i[0]].lugar.toString(),
+      periodo: this.curriculumService.experiencia[i[0]].periodo.toString(),
+      descripcion: this.curriculumService.experiencia[i[0]].descripcion.toString()
     }
   }
 

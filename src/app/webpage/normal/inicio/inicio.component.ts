@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InicioService } from 'src/app/services/inicio.service';
 import { LinksService } from 'src/app/services/links.service';
 
 @Component({
@@ -8,15 +9,18 @@ import { LinksService } from 'src/app/services/links.service';
 })
 export class InicioComponent {
 
-  nombre = "RONALD NOGALES";
-  profesion = "Desarrollador Web Full Stack";
-
-  constructor(private redesSociales: LinksService){}
-
-  facebook: String = this.redesSociales.links.facebook
-  instagram: String = this.redesSociales.links.instagram
-  linkedin: String = this.redesSociales.links.linkedin
-  correo: String = this.redesSociales.links.correo_electronico
-
-
+  nombre: string;
+  profesion: string;
+  facebook: String;
+  instagram: String;
+  linkedin: String;
+  correo: String;
+  constructor(private redesSociales: LinksService, inicioService: InicioService){
+    this.nombre = inicioService.nombre;
+    this.profesion = inicioService.profesion;
+    this.facebook = this.redesSociales.links.facebook;
+    this.instagram = this.redesSociales.links.instagram;
+    this.linkedin = this.redesSociales.links.linkedin;
+    this.correo = this.redesSociales.links.correo_electronico;
+  }
 }

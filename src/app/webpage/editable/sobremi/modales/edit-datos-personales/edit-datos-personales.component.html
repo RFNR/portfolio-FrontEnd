@@ -21,35 +21,45 @@
       <div class="modal-body">
         <input
           type="text"
-          placeholder="Nombre completo"
+          placeholder="Edad"
           class="container form-control mb-2"
+          #edadPersonal
+          [value]="valorPorDefecto.valorPorDefectoEdad"
         />
         <input
           type="number"
           placeholder="Numero de telefono"
           class="container form-control mb-2"
+          [value]="valorPorDefecto.valorPorDefectoTelefono"
+          #numeroDeTelefono
         />
         <input
           type="email"
           placeholder="Correo electronico"
           class="container form-control mb-2"
+          [value]="valorPorDefecto.valorPorDefectoCorreo"
+          #correoElectronicoDatoPersonal
         />
         <input
           type="text"
           placeholder="Ubicación"
           class="container form-control mb-2"
+          [value]="valorPorDefecto.valorPorDefectoUbicacion"
+          #ubicacionSobreMi
         />
         <input
           type="text"
           placeholder="Cargo actual"
           class="container form-control mb-2"
+          [value]="valorPorDefecto.valorPorDefectoCargo"
+          #cargoDatoPersonal
         />
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">
           Guardar
         </button>
       </div>

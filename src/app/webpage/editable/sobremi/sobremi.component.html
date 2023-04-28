@@ -12,7 +12,7 @@
       <h2>Sobre Mí</h2>
     </div>
     <p class="mb-4">
-      {{ infoSobreMi }}
+      {{infoSobreMi}}
     </p>
 
     <div class="fila">
@@ -33,23 +33,23 @@
         <ul>
           <li>
             <strong>Edad</strong>
-            25 años
+            {{datosPersonales.edad}}
           </li>
           <li>
             <strong>Teléfono</strong>
-            3516714854
+            {{datosPersonales.telefono}}
           </li>
           <li>
             <strong>Email</strong>
-            ronald.fernr@gmail.com
+            {{datosPersonales.email}}
           </li>
           <li>
             <strong>Ubicación</strong>
-            Córdoba, Argentina
+            {{datosPersonales.ubicacion}}
           </li>
           <li>
             <strong>Cargo actual</strong>
-            <span>FREELANCE</span>
+            <span>{{datosPersonales.cargo}}</span>
           </li>
         </ul>
       </div>
@@ -65,8 +65,8 @@
               data-bs-toggle="modal"
               data-bs-target="#delete-interes"
             ></i>
-            <i class="{{ actividad.icono }} icono"></i>
-            <span>{{ actividad.interes }}</span>
+            <i class="{{actividad.icono}} icono"></i>
+            <span>{{actividad.interes}}</span>
           </div>
 
           <div
@@ -83,10 +83,10 @@
 </section>
 
 <!-- Modal editar descripcion -->
-<app-edit-descripcion></app-edit-descripcion>
+<app-edit-descripcion (enviarValor) ="recibirValor($event)"></app-edit-descripcion>
 
 <!-- Modal editar datos personales -->
-<app-edit-datos-personales></app-edit-datos-personales>
+<app-edit-datos-personales (enviarDatosPersonales) ="recibirDatosPersonales($event)"></app-edit-datos-personales>
 
 <!-- Modal eliminar interes -->
 <app-delete-interes></app-delete-interes>

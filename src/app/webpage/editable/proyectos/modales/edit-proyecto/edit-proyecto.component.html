@@ -23,16 +23,22 @@
           type="text"
           placeholder="Nombre"
           class="container form-control mb-2"
+          [value]="valoresPorDefecto.nombre"
+          #nombreProyectoEdit
         />
         <input
           type="text"
           placeholder="Link"
           class="container form-control mb-2"
+          [value]="valoresPorDefecto.link"
+          #linkProyectoEdit
         />
         <input
           type="text"
           placeholder="Descripcion breve"
           class="container form-control mb-2"
+          [value]="valoresPorDefecto.descripcion"
+          #descripcionProyectoEdit
         />
         <div class="mb-3">
           <label for="formFileSm" class="form-label"
@@ -42,14 +48,18 @@
             class="form-control form-control-sm"
             id="formFileSm"
             type="file"
-          />
+            (change)="imagenObtenida($event)"
+          /><br>
+          <div class="alert alert-info" role="alert">
+            Si no selecciona una imagen, se mantendra la que ya posee.
+          </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>
       </div>
     </div>
   </div>

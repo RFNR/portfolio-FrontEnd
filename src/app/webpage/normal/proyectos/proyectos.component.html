@@ -3,8 +3,8 @@
         <h2>PROYECTOS</h2>
         <div class="galeria">
             <div class="proyecto" *ngFor="let proyecto of proyectos">
-                <img src="{{proyecto.img}}" alt="">
-                <a href="">
+                <img [src]="proyecto.img" alt="">
+                <a [href]="proyecto.link">
                     <div class="overlay">
                         <h3>{{proyecto.nombre}}</h3>
                         <p>{{proyecto.descripcion}}</p>

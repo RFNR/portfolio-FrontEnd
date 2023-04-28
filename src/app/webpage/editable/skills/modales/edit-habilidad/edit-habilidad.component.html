@@ -4,6 +4,7 @@
   tabindex="-1"
   aria-labelledby="edit-habilidadLabel"
   aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false"
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -23,6 +24,8 @@
           type="text"
           placeholder="Nombre de la habilidad"
           class="container form-control mb-3"
+          [value]="habilidad.nombre"
+          #nombreHabilidadEdit
         />
 
         <div class="mb-3">
@@ -33,21 +36,21 @@
             <input
               type="range"
               class="form-range barra"
-              id="rangeEdit"
-              value="0"
-              min="1"
+              min="0"
               max="100"
-              oninput="rangeEditValue.innerText = this.value"
+              value="0"
+              (input)="cambiosEnElInput($event)"
+              #rangoEdit
             />
-            <p class="contador" id="rangeEditValue">0</p>
+            <p class="contadorBarra">{{valorDeRango}}</p>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>
       </div>
     </div>
   </div>

@@ -20,11 +20,11 @@
         <div class="skill" *ngFor="let habilidad of habilidades; let i = index">
           <div>
             <button type="button" class="btn btn-primary btn-editar" data-bs-toggle="modal"
-            data-bs-target="#edit-habilidad">
+            data-bs-target="#edit-habilidad" (click)="cambiarIndexEditar([i])">
               <i class="bi bi-pencil-fill"></i>
             </button>
             <button type="button" class="btn btn-danger btn-eliminar" data-bs-toggle="modal"
-            data-bs-target="#delete-habilidad">
+            data-bs-target="#delete-habilidad" (click)="cambiarIndexEliminar([i])">
               <i class="bi bi-trash3"></i>
             </button>
           </div>
@@ -49,10 +49,10 @@
 
 
 <!-- Modal añadir habilidad -->
-<app-add-habilidad></app-add-habilidad>
+<app-add-habilidad (activarAnimacion)="activarAnimacion($event)"></app-add-habilidad>
 
 <!-- Modal editar habilidad -->
-<app-edit-habilidad></app-edit-habilidad>
+<app-edit-habilidad (activarAnimacion)="activarAnimacion($event)" [habilidad]="habilidad"></app-edit-habilidad>
 
 <!-- Modal eliminar habilidad-->
 <app-delete-habilidad></app-delete-habilidad>

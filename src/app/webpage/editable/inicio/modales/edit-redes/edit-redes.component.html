@@ -9,7 +9,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="redesLabel">
-          Ingrese los links de sus redes sociales:
+          Edite los links de sus redes sociales:
         </h1>
         <button
           type="button"
@@ -23,28 +23,36 @@
           type="text"
           placeholder="Facebook"
           class="container form-control mb-2"
+          [value]="linkFacebook"
+          #facebook
         />
         <input
           type="text"
           placeholder="Instagram"
           class="container form-control mb-2"
+          [value]="linkInstagram"
+          #instagram
         />
         <input
           type="text"
           placeholder="Linkedin"
           class="container form-control mb-2"
+          [value]="linkLinkedin"
+          #linkedin
         />
         <input
           type="text"
           placeholder="Direccion de correo electronico"
           class="container form-control mb-2"
+          [value]="linkCorreoElectronico"
+          #correoElectronico
         />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>
       </div>
     </div>
   </div>
