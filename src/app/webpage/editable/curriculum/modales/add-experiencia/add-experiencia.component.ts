@@ -16,21 +16,28 @@ export class AddExperienciaComponent {
   @ViewChild('descripcionExperiencia') descripcionExperiencia!: ElementRef<HTMLTextAreaElement>; 
 
   guardar(){
-    
-    let experiencia: Experiencia = {
-      cargo: this.cargo.nativeElement.value,
-      lugar: this.lugar.nativeElement.value,
-      periodo: this.periodoExperiencia.nativeElement.value,
-      descripcion: this.descripcionExperiencia.nativeElement.value
+
+    if(this.cargo.nativeElement.value && this.lugar.nativeElement.value && this.periodoExperiencia.nativeElement.value && this.descripcionExperiencia.nativeElement.value){
+
+      let experiencia: Experiencia = {
+        cargo: this.cargo.nativeElement.value,
+        lugar: this.lugar.nativeElement.value,
+        periodo: this.periodoExperiencia.nativeElement.value,
+        descripcion: this.descripcionExperiencia.nativeElement.value
+      }
+      this.curriculumService.experiencia.push(experiencia);
     }
-
-    this.curriculumService.experiencia.push(experiencia);
-
     // Reseteando datos
     this.cargo.nativeElement.value = "";
     this.lugar.nativeElement.value = "";
     this.periodoExperiencia.nativeElement.value = "";
     this.descripcionExperiencia.nativeElement.value = "";
 
+  }
+  cerrar(){
+    this.cargo.nativeElement.value = "";
+    this.lugar.nativeElement.value = "";
+    this.periodoExperiencia.nativeElement.value = "";
+    this.descripcionExperiencia.nativeElement.value = "";
   }
 }

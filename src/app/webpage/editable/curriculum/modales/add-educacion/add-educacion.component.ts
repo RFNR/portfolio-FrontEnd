@@ -16,17 +16,27 @@ export class AddEducacionComponent {
   @ViewChild('descripcionEducacion') descripcionEducacion!: ElementRef<HTMLTextAreaElement>; 
 
   guardar(){
-    
-    let formacion: Educacion = {
-      area: this.titulo.nativeElement.value,
-      establecimiento: this.establecimiento.nativeElement.value,
-      periodo: this.periodoEducacion.nativeElement.value,
-      descripcion: this.descripcionEducacion.nativeElement.value
+
+    if(this.titulo.nativeElement.value && this.establecimiento.nativeElement.value && this.periodoEducacion.nativeElement.value && this.descripcionEducacion.nativeElement.value){
+
+      let formacion: Educacion = {
+        area: this.titulo.nativeElement.value,
+        establecimiento: this.establecimiento.nativeElement.value,
+        periodo: this.periodoEducacion.nativeElement.value,
+        descripcion: this.descripcionEducacion.nativeElement.value
+      }
+
+      this.curriculumService.educacion.push(formacion);
     }
 
-    this.curriculumService.educacion.push(formacion);
-
     // Reseteando valores
+    this.titulo.nativeElement.value = "";
+    this.establecimiento.nativeElement.value = "";
+    this.periodoEducacion.nativeElement.value = "";
+    this.descripcionEducacion.nativeElement.value = "";
+  }
+
+  cerrar(){
     this.titulo.nativeElement.value = "";
     this.establecimiento.nativeElement.value = "";
     this.periodoEducacion.nativeElement.value = "";

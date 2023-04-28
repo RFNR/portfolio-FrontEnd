@@ -36,13 +36,18 @@ export class AddProyectoComponent {
     }
     if(this.proyecto.nombre && this.proyecto.descripcion && this.proyecto.img && this.proyecto.link){
        this.proyectosService.proyectos.push(this.proyecto);
+    }
+    this.nombreProyecto.nativeElement.value = "";
+    this.descripcionProyecto.nativeElement.value = "";
+    this.linkProyecto.nativeElement.value = "";
+    this.imagenSeleccionada.nativeElement.value = ""; 
+  }
 
-      this.nombreProyecto.nativeElement.value = "";
-      this.descripcionProyecto.nativeElement.value = "";
-      this.linkProyecto.nativeElement.value = "";
-      this.imagenSeleccionada.nativeElement.value = "";
-      return;
-    } 
+  cerrar(){
+    this.nombreProyecto.nativeElement.value = "";
+    this.descripcionProyecto.nativeElement.value = "";
+    this.linkProyecto.nativeElement.value = "";
+    this.imagenSeleccionada.nativeElement.value = "";
   }
 
   imagenObtenida(event: any){

@@ -31,4 +31,10 @@ export class EditRedesComponent {
     this.linksService.links.linkedin = this.linkedin.nativeElement.value;
     this.linksService.links.correo_electronico = this.correoElectronico.nativeElement.value;
   }
+  cerrar(){
+    this.facebook.nativeElement.value = this.linksService.links.facebook.toString();
+    this.instagram.nativeElement.value = this.linksService.links.instagram.toString();
+    this.linkedin.nativeElement.value = this.linksService.links.linkedin.toString();
+    this.correoElectronico.nativeElement.value = this.linksService.links.correo_electronico.toString();
+  }
 }

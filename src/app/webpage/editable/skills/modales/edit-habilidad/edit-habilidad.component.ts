@@ -39,10 +39,12 @@ export class EditHabilidadComponent {
     }
     this.valorDeRango = "0";
     this.rangoEdit.nativeElement.value = "0";
+    this.nombreHabilidadEdit.nativeElement.value = this.skillsService.habilidades[this.skillsService.index[0]].nombre
   }
   cerrar(){
     this.valorDeRango = "0";
     this.rangoEdit.nativeElement.value = "0";
+    this.nombreHabilidadEdit.nativeElement.value = this.skillsService.habilidades[this.skillsService.index[0]].nombre
   }
 
 }

@@ -38,5 +38,14 @@ export class EditProyectoComponent {
     if(this.valoresPorDefecto.nombre && this.valoresPorDefecto.descripcion && this.valoresPorDefecto.img && this.valoresPorDefecto.link){
        this.proyectosService.proyectos[this.proyectosService.index[0]] = this.valoresPorDefecto;
     }
+    this.nombreProyectoEdit.nativeElement.value = this.proyectosService.proyectos[this.proyectosService.index[0]].nombre.toString();
+    this.descripcionProyectoEdit.nativeElement.value = this.proyectosService.proyectos[this.proyectosService.index[0]].descripcion.toString();
+    this.linkProyectoEdit.nativeElement.value = this.proyectosService.proyectos[this.proyectosService.index[0]].link.toString();
+  }
+
+  cerrar(){
+    this.nombreProyectoEdit.nativeElement.value = this.proyectosService.proyectos[this.proyectosService.index[0]].nombre.toString();
+    this.descripcionProyectoEdit.nativeElement.value = this.proyectosService.proyectos[this.proyectosService.index[0]].descripcion.toString();
+    this.linkProyectoEdit.nativeElement.value = this.proyectosService.proyectos[this.proyectosService.index[0]].link.toString();
   }
 }

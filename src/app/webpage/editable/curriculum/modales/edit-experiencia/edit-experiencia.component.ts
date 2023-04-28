@@ -23,11 +23,21 @@ export class EditExperienciaComponent {
   }
 
   editar() {
-    this.curriculumService.experiencia[this.curriculumService.index[0]] = {
-      cargo: this.cargoEdit.nativeElement.value,
-      lugar: this.lugarEdit.nativeElement.value,
-      periodo: this.periodoExperienciaEdit.nativeElement.value,
-      descripcion: this.descripcionExperienciaEdit.nativeElement.value,
-    };
+    if(this.cargoEdit.nativeElement.value && this.lugarEdit.nativeElement.value && this.periodoExperienciaEdit.nativeElement.value && this.descripcionExperienciaEdit.nativeElement.value){
+
+      this.curriculumService.experiencia[this.curriculumService.index[0]] = {
+        cargo: this.cargoEdit.nativeElement.value,
+        lugar: this.lugarEdit.nativeElement.value,
+        periodo: this.periodoExperienciaEdit.nativeElement.value,
+        descripcion: this.descripcionExperienciaEdit.nativeElement.value,
+      };
+    }
+    
+  }
+  cerrar(){
+    this.cargoEdit.nativeElement.value = this.curriculumService.experiencia[this.curriculumService.index[0]].cargo.toString();
+    this.lugarEdit.nativeElement.value = this.curriculumService.experiencia[this.curriculumService.index[0]].lugar.toString(); 
+    this.periodoExperienciaEdit.nativeElement.value = this.curriculumService.experiencia[this.curriculumService.index[0]].periodo.toString(); 
+    this.descripcionExperienciaEdit.nativeElement.value = this.curriculumService.experiencia[this.curriculumService.index[0]].descripcion.toString(); 
   }
 }

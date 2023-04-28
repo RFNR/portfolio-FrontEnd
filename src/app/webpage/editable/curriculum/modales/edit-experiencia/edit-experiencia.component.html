@@ -4,6 +4,7 @@
   tabindex="-1"
   aria-labelledby="edit-experienciaLabel"
   aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false"
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -16,6 +17,7 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          (click)="cerrar()"
         ></button>
       </div>
       <div class="modal-body">
@@ -41,9 +43,12 @@
           #periodoExperienciaEdit
         />
         <textarea class="form-control mb-2 container" placeholder="Descripcion" rows="5" value="{{valoresPorDefecto.descripcion}}" #descripcionExperienciaEdit></textarea>
+        <div class="alert alert-info" role="alert">
+          Los cambios se efectuaran solo si todos los campos estan completos.
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cerrar
         </button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editar()">Guardar</button>

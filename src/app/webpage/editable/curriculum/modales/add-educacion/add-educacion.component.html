@@ -1,23 +1,67 @@
-<div class="modal fade" id="educacion" tabindex="-1" aria-labelledby="educacionLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="educacion"
+  tabindex="-1"
+  aria-labelledby="educacionLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="educacionLabel">
           Ingresar formación:
         </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="cerrar()"
+        ></button>
       </div>
       <div class="modal-body">
-        <input type="text" placeholder="Titulo" class="container form-control mb-2" #titulo/>
-        <input type="text" placeholder="Establecimiento" class="container form-control mb-2" #establecimiento/>
-        <input type="text" placeholder="Periodo" class="container form-control mb-2" #periodoEducacion/>
-        <textarea class="form-control mb-2 container" placeholder="Descripcion" rows="5" #descripcionEducacion></textarea>
+        <input
+          type="text"
+          placeholder="Titulo"
+          class="container form-control mb-2"
+          #titulo
+        />
+        <input
+          type="text"
+          placeholder="Establecimiento"
+          class="container form-control mb-2"
+          #establecimiento
+        />
+        <input
+          type="text"
+          placeholder="Periodo"
+          class="container form-control mb-2"
+          #periodoEducacion
+        />
+        <textarea
+          class="form-control mb-2 container"
+          placeholder="Descripcion"
+          rows="5"
+          #descripcionEducacion
+        ></textarea>
+        <div class="alert alert-info" role="alert">
+          Los cambios se efectuaran solo si todos los campos estan completos.
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cerrar
         </button>
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="guardar()">Añadir</button>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-dismiss="modal"
+          (click)="guardar()"
+        >
+          Añadir
+        </button>
       </div>
     </div>
   </div>

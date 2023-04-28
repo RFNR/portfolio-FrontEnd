@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { InicioService } from 'src/app/services/inicio.service';
 
 @Component({
@@ -11,11 +11,18 @@ export class EditBannerComponent {
   imagen: string = "";
 
   @Output() enviarDatos = new EventEmitter<string>()
+  @ViewChild('bannerUpload') bannerUpload!: ElementRef<HTMLInputElement>
   constructor(private inicioService: InicioService){}
 
   guardar(){
-    this.inicioService.perfil = this.imagen;
-    this.enviarDatos.emit(this.inicioService.perfil);
+    if(this.bannerUpload.nativeElement.value){
+      this.inicioService.perfil = this.imagen;
+      this.enviarDatos.emit(this.inicioService.perfil);
+    }
+    this.bannerUpload.nativeElement.value = "";
+  }
+  cerrar(){
+    this.bannerUpload.nativeElement.value = "";
   }
 
   imagenObtenida(event: any){

@@ -4,6 +4,7 @@
   tabindex="-1"
   aria-labelledby="edit-proyectLabel"
   aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false"
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -16,6 +17,7 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          (click)="cerrar()"
         ></button>
       </div>
       <div class="modal-body">
@@ -51,12 +53,12 @@
             (change)="imagenObtenida($event)"
           /><br>
           <div class="alert alert-info" role="alert">
-            Si no selecciona una imagen, se mantendra la que ya posee.
+            Si no selecciona una imagen, se mantendra la que ya posee. TODOS LOS DEMAS CAMPOS SON OBLIGATORIOS PARA QUE SE EFECTUE EL CAMBIO.
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cerrar
         </button>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>

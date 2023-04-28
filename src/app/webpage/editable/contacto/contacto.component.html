@@ -57,6 +57,7 @@
   tabindex="-1"
   aria-labelledby="ubicacionLabel"
   aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false"
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -67,6 +68,7 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          (click)="cerrar()"
         ></button>
       </div>
       <div class="modal-body">
@@ -76,10 +78,13 @@
           class="container form-control"
           placeholder="Ingrese el codigo HTML aquí..."
         ></textarea>
+        <br>
+        <div class="alert alert-info" role="alert">
+          Si el codigo HTML no es válido, no se efectuaran los cambios.
+        </div>
       </div>
-
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cancelar
         </button>
 
@@ -87,7 +92,7 @@
           type="button"
           class="btn btn-primary enviar"
           data-bs-dismiss="modal"
-          (click)="guardarCodigoHtml()"
+          (click)="guardar()"
         >
           Guardar
         </button>

@@ -18,7 +18,7 @@ export class ContactoComponent {
 
 
 
-  guardarCodigoHtml() { 
+  guardar() { 
     this.value = this.valorTextArea.nativeElement.value; // String -> Si no se envia nada, se obtiene un string vacio
     let arrayDevuelto = this.value.match(/src="([^"]*)"/);
 
@@ -30,4 +30,7 @@ export class ContactoComponent {
     this.valorTextArea.nativeElement.value = ""; // Reseteamos el value del iframe
   }
 
+  cerrar(){
+    this.valorTextArea.nativeElement.value = "";
+  }
 }

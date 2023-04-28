@@ -23,5 +23,8 @@ export class EditDatosComponent {
     this.inicioService.profesion = this.profesionIdentificador.nativeElement.value; 
     this.eventoParaActualizacion.emit("Este mensaje hace que se ejecute el metodo en el padre de este componente.")
   }
-
+  cerrar(){
+    this.nombreIdentificador.nativeElement.value = this.inicioService.nombre;
+    this.profesionIdentificador.nativeElement.value = this.inicioService.profesion;
+  }
 }

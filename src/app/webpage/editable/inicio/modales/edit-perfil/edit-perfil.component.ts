@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { InicioService } from 'src/app/services/inicio.service';
 
@@ -12,11 +12,18 @@ export class EditPerfilComponent {
   imagen: string = "";
 
   @Output() enviarDatos = new EventEmitter<string>()
+  @ViewChild('perfilUpload') perfilUpload!: ElementRef<HTMLInputElement>
   constructor(private inicioService: InicioService){}
 
   guardar(){
-    this.inicioService.perfil = this.imagen;
-    this.enviarDatos.emit(this.inicioService.perfil);
+    if(this.perfilUpload.nativeElement.value){
+      this.inicioService.perfil = this.imagen;
+      this.enviarDatos.emit(this.inicioService.perfil);
+    }
+    this.perfilUpload.nativeElement.value = "";
+  }
+  cerrar(){
+    this.perfilUpload.nativeElement.value = "";
   }
 
   imagenObtenida(event: any){
