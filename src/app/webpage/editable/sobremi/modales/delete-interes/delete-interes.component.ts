@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SobreMiService } from 'src/app/services/sobre-mi.service';
 
 @Component({
   selector: 'app-delete-interes',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class DeleteInteresComponent {
 
+  constructor(private sobreMiService: SobreMiService){}
+
+  eliminar(){
+    this.sobreMiService.eliminar()
+  }
 }

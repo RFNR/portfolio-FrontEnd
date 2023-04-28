@@ -37,16 +37,20 @@ export class EditDatosPersonalesComponent {
       cargo: this.cargoDatoPersonal.nativeElement.value
     };
 
-    this.enviarDatosPersonales.emit(this.sobreMiService.datosPersonales);
+    this.edadPersonal.nativeElement.value = this.sobreMiService.datosPersonales.edad.toString();
+    this.numeroDeTelefono.nativeElement.value = this.sobreMiService.datosPersonales.telefono.toString();
+    this.correoElectronicoDatoPersonal.nativeElement.value = this.sobreMiService.datosPersonales.email.toString();
+    this.ubicacionSobreMi.nativeElement.value = this.sobreMiService.datosPersonales.ubicacion.toString();
+    this.cargoDatoPersonal.nativeElement.value = this.sobreMiService.datosPersonales.cargo.toString();
+
+    this.enviarDatosPersonales.emit(this.sobreMiService.datosPersonales)
   }
 
   cerrar(){
-    this.valorPorDefecto = {
-      valorPorDefectoEdad: this.sobreMiService.datosPersonales.edad,
-      valorPorDefectoTelefono: this.sobreMiService.datosPersonales.telefono,
-      valorPorDefectoCorreo: this.sobreMiService.datosPersonales.email,
-      valorPorDefectoUbicacion: this.sobreMiService.datosPersonales.ubicacion,
-      valorPorDefectoCargo: this.sobreMiService.datosPersonales.cargo,
-    };
+    this.edadPersonal.nativeElement.value = this.sobreMiService.datosPersonales.edad.toString();
+    this.numeroDeTelefono.nativeElement.value = this.sobreMiService.datosPersonales.telefono.toString();
+    this.correoElectronicoDatoPersonal.nativeElement.value = this.sobreMiService.datosPersonales.email.toString();
+    this.ubicacionSobreMi.nativeElement.value = this.sobreMiService.datosPersonales.ubicacion.toString();
+    this.cargoDatoPersonal.nativeElement.value = this.sobreMiService.datosPersonales.cargo.toString();
   }
 }

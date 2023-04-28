@@ -23,16 +23,29 @@
           type="text"
           placeholder="Nombre"
           class="container form-control mb-2"
+          #nombreInteres
         />
+        <h2 class="modal-title fs-5">Seleccione un icono:</h2>
+          <div class="container mt-2">
+            <div class="row justify-content-evenly">
+              <div *ngFor="let icono of iconos; let i = index" class="icono">
+                <div class="cuadrado fondo{{i}}" (click)="cambiarColor([i])" id="cuadrado{{i}}">
+                  <i class="{{icono}}"></i>
+                </div>
+
+              </div>
+            </div>
+          </div>
         <div class="modal-footer">
           <button
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
+            (click)="cerrar()"
           >
             Cerrar
           </button>
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="guardar()">
             Añadir
           </button>
         </div>

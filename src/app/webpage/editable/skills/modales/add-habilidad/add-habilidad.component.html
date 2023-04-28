@@ -4,6 +4,7 @@
   tabindex="-1"
   aria-labelledby="add-habilidadLabel"
   aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false"
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -23,6 +24,7 @@
           type="text"
           placeholder="Nombre de la habilidad"
           class="container form-control mb-3"
+          required
           #nombreHabilidad
         />
 
@@ -39,12 +41,17 @@
               min="0"
               max="100"
               (input)="cambiosEnElInput($event)"
+              required
               #rango
             />
             <p class="contadorBarra">{{valorDeRango}}</p>
           </div>
         </div>
+        <div class="alert alert-info" role="alert">
+          Los cambios se efectuaran solo si se modifican ambos campos.
+        </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
           Cerrar

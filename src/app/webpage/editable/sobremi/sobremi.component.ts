@@ -25,4 +25,8 @@ export class SobremiComponent {
   recibirDatosPersonales(event: DatosPersonales){
     this.datosPersonales = event;
   }
+
+  modificarIndex(i: number[]){
+    this.sobreMiService.index[0] = i[0];
+  }
 }

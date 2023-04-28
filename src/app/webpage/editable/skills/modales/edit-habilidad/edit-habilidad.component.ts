@@ -33,11 +33,12 @@ export class EditHabilidadComponent {
       nombre: this.nombreHabilidadEdit.nativeElement.value,
       porcentaje: this.rangoEdit.nativeElement.value + "%"
     }
-    if(this.habilidad.nombre){
+    if(this.habilidad.nombre && this.rangoEdit.nativeElement.value !== "0"){
       this.skillsService.habilidades[this.skillsService.index[0]] = this.habilidad 
       this.activarAnimacion.emit("Activar animacion");
     }
     this.valorDeRango = "0";
+    this.rangoEdit.nativeElement.value = "0";
   }
   cerrar(){
     this.valorDeRango = "0";

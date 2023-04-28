@@ -59,12 +59,13 @@
         <h3>Intereses</h3>
 
         <div class="contenedor-intereses">
-          <div class="interes" *ngFor="let actividad of intereses">
+          <div class="interes" *ngFor="let actividad of intereses; let i = index">
             <i
               class="bi bi-x-circle-fill"
               data-bs-toggle="modal"
               data-bs-target="#delete-interes"
-            ></i>
+              (click)="modificarIndex([i])"
+              ></i>
             <i class="{{actividad.icono}} icono"></i>
             <span>{{actividad.interes}}</span>
           </div>

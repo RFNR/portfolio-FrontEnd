@@ -8,6 +8,14 @@ export class SobreMiService {
 
   constructor() { }
 
+  index = [0]
+
+  icono = "";
+
+  eliminar(){
+    this.intereses.splice(this.index[0], 1);
+  }
+
   infoSobreMi: string = 
   `Hola, soy Ronald Nogales, tengo 25 años y soy de Córdoba. Soy desarrollador web full stack.
   Me apasiona crear soluciones digitales únicas y personalizadas a través del arte y la ciencia de la
@@ -53,4 +61,27 @@ export class SobreMiService {
     ubicacion: "Córdoba, Argentina",
     cargo: "FREELANCE"
   }
+
+  iconos:string[] = [
+    "bi bi-book",
+    "fa-solid fa-headphones",
+    "fa-solid fa-gamepad",
+    "fa-solid fa-plane",
+    "fa-solid fa-person-hiking",
+    "fa-solid fa-car",
+    "bi bi-tiktok",
+    "bi bi-currency-bitcoin",
+    "bi bi-emoji-sunglasses-fill",
+    "bi bi-lightbulb-fill",
+    "bi bi-activity",
+    "bi bi-android2",
+    "bi bi-apple",
+    "bi bi-badge-8k",
+    "bi bi-bag-fill",
+    "bi bi-bank",
+    "bi bi-bootstrap-fill",
+    "bi bi-camera-video-fill",
+    "bi bi-cash-coin",
+    "bi bi-chat-left-dots-fill"
+  ]
 }

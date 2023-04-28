@@ -33,7 +33,7 @@ export class AddHabilidadComponent {
       nombre: this.nombreHabilidad.nativeElement.value,
       porcentaje: this.rango.nativeElement.value + "%"
     }
-    if(this.habilidad.nombre){
+    if(this.habilidad.nombre && this.rango.nativeElement.value !== "0"){
       this.skillsService.habilidades.push(this.habilidad) 
       this.activarAnimacion.emit("Activar animacion");
     }

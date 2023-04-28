@@ -20,7 +20,11 @@ export class EditDescripcionComponent {
   guardar(){
     this.sobreMiService.infoSobreMi = this.textAreaDescripcionSobreMi.nativeElement.value;
     this.valorEnviado = this.sobreMiService.infoSobreMi;
+    this.textAreaDescripcionSobreMi.nativeElement.value = this.sobreMiService.infoSobreMi;
     this.enviarValor.emit(this.valorEnviado);
+  }
+  cerrar(){
+    this.textAreaDescripcionSobreMi.nativeElement.value = this.sobreMiService.infoSobreMi;
   }
   
 }
