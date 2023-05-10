@@ -1,66 +1,55 @@
 import { Injectable } from '@angular/core';
-import { DatosPersonales, Intereses } from '../interfaces/sobremi.interface';
+import { DatosPersonales, InformacionSobreMi, Intereses } from '../interfaces/sobremi.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SobreMiService {
 
-  constructor() { }
-
+  private url: string = "http://localhost:8080/datospersonales/datos";
+  private urlIntereses: string = "http://localhost:8080/intereses/datos";
+  private urlIformacionSobreMi: string = "http://localhost:8080/informacionsobremi/datos";
+  id: number | undefined = 0;
   index = [0]
 
-  icono = "";
+  constructor(private http: HttpClient) { }
 
-  eliminar(){
+  obtenerDatosPersonales():Observable<DatosPersonales[]>{
+    return this.http.get<DatosPersonales[]>(`${this.url}`)
+  }
+  modificarDatosPersonales(datosPersonales: DatosPersonales): Observable<DatosPersonales> {
+    const url = `${this.url}/1`;
+    return this.http.put<DatosPersonales>(url, datosPersonales);
+  }
+
+  obtenerIntereses():Observable<Intereses[]>{
+    return this.http.get<Intereses[]>(`${this.urlIntereses}`)
+  }
+  eliminarIntereses(id: number): Observable<Object>{
     this.intereses.splice(this.index[0], 1);
+    return this.http.delete(`${this.urlIntereses}/${id}`)
+  }
+  addInteres(interes: Intereses): Observable<Object> {
+    return this.http.post(`${this.urlIntereses}`, interes);
   }
 
-  infoSobreMi: string = 
-  `Hola, soy Ronald Nogales, tengo 25 años y soy de Córdoba. Soy desarrollador web full stack.
-  Me apasiona crear soluciones digitales únicas y personalizadas a través del arte y la ciencia de la
-  programación.
-  Mi dedicación a la programación me ha permitido adquirir habilidades para transformar conceptos
-  abstractos en soluciones concretas y efectivas. Como desarrollador web full stack, soy consciente de la
-  importancia de crear sitios web y aplicaciones que no solo sean funcionales, sino también seguros y
-  escalables.
-  Creo firmemente en la importancia de aprender y crecer en mi carrera, y estoy comprometido a mantenerme
-  actualizado con las últimas tecnologías y tendencias del mercado para ofrecer siempre la mejor solución
-  para mis clientes y usuarios finales.
-  Soy consciente de que la tecnología tiene el poder de cambiar el mundo, y estoy emocionado de ser parte
-  de este cambio a través de mi trabajo. Mi objetivo es seguir explorando nuevas posibilidades en el campo
-  de la programación. Espero te guste este sitio web. Saludos!
-  `; 
-
-  intereses: Intereses[] = [
-    {
-      interes:"JUEGOS", 
-      icono: "fa-solid fa-gamepad"
-    },
-    {
-      interes:"MUSICA", 
-      icono: "fa-solid fa-headphones"
-    },
-    {
-      interes:"VIAJAR", 
-      icono: "fa-solid fa-plane"
-    },
-    {
-      interes:"DEPORTE", 
-      icono: "fa-solid fa-person-hiking"
-    },
-    {
-      interes:"AUTOS", 
-      icono: "fa-solid fa-car"
-    }
-  ]
-  datosPersonales: DatosPersonales = {
-    edad: "25 años",
-    telefono: "3516714854",
-    email: "ronald.fernr@gmail.com",
-    ubicacion: "Córdoba, Argentina",
-    cargo: "FREELANCE"
+  modificarInformacionSobrMi(informacionsobremi: InformacionSobreMi): Observable<InformacionSobreMi> {
+    const url = `${this.urlIformacionSobreMi}/1`;
+    return this.http.put<InformacionSobreMi>(url, informacionsobremi);
   }
+  obtenerInformacionSobrMi():Observable<InformacionSobreMi[]>{
+    return this.http.get<InformacionSobreMi[]>(`${this.urlIformacionSobreMi}`)
+  }
+
+  datosPersonales!: DatosPersonales;
+  infoSobreMi!: string;
+  intereses!: Intereses[];
+
+ 
+
+  icono = "";
 
   iconos:string[] = [
     "bi bi-book",

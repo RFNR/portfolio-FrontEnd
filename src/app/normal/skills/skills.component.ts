@@ -8,8 +8,6 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent implements OnInit{
-
-  validacion = false;
   
   constructor(private el: ElementRef, private skillsService: SkillsService) {
   }
@@ -18,7 +16,6 @@ export class SkillsComponent implements OnInit{
       this.skillsService.habilidades = datos;
       this.habilidades = datos;
       this.habilidadesAnimadas = Array(this.habilidades.length);
-      this.validacion = true;
     })
   }
 

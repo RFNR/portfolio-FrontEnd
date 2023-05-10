@@ -1,4 +1,4 @@
-<section id="sobremi" class="sobremi">
+<section id="sobremi" class="sobremi" *ngIf="validacion">
   <div class="contenido-seccion">
     <div class="infosobremi">
       <button
@@ -64,7 +64,7 @@
               class="bi bi-x-circle-fill"
               data-bs-toggle="modal"
               data-bs-target="#delete-interes"
-              (click)="modificarIndex([i])"
+              (click)="modificarIndex([i], actividad.id)"
               ></i>
             <i class="{{actividad.icono}} icono"></i>
             <span>{{actividad.interes}}</span>

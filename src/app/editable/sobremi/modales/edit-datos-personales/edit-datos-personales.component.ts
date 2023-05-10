@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { DatosPersonales } from 'src/app/interfaces/sobremi.interface';
 import { SobreMiService } from 'src/app/services/sobre-mi.service';
 
@@ -7,7 +7,7 @@ import { SobreMiService } from 'src/app/services/sobre-mi.service';
   templateUrl: './edit-datos-personales.component.html',
   styleUrls: ['./edit-datos-personales.component.css']
 })
-export class EditDatosPersonalesComponent {
+export class EditDatosPersonalesComponent implements OnInit{
   
   @ViewChild('edadPersonal') edadPersonal!: ElementRef<HTMLInputElement>;
   @ViewChild('numeroDeTelefono') numeroDeTelefono!: ElementRef<HTMLInputElement>;
@@ -16,34 +16,41 @@ export class EditDatosPersonalesComponent {
   @ViewChild('cargoDatoPersonal') cargoDatoPersonal!: ElementRef<HTMLInputElement>;
 
   @Output() enviarDatosPersonales = new EventEmitter<DatosPersonales>();
+  validacion = false;
+  datosGuardar!: DatosPersonales;
 
   constructor(private sobreMiService: SobreMiService){
   }
-
-  valorPorDefecto = {
-    valorPorDefectoEdad: this.sobreMiService.datosPersonales.edad,
-    valorPorDefectoTelefono: this.sobreMiService.datosPersonales.telefono,
-    valorPorDefectoCorreo: this.sobreMiService.datosPersonales.email,
-    valorPorDefectoUbicacion: this.sobreMiService.datosPersonales.ubicacion,
-    valorPorDefectoCargo: this.sobreMiService.datosPersonales.cargo,
-  };
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.valorPorDefecto = this.sobreMiService.datosPersonales;
+      this.validacion = true;
+    }, 1000)
+    
+  }
+  valorPorDefecto!: DatosPersonales;
 
   guardar(){
-    this.sobreMiService.datosPersonales = {
+    this.datosGuardar = {
+      id: 1,
       edad: this.edadPersonal.nativeElement.value,
       telefono: this.numeroDeTelefono.nativeElement.value,
       email: this.correoElectronicoDatoPersonal.nativeElement.value,
       ubicacion: this.ubicacionSobreMi.nativeElement.value,
       cargo: this.cargoDatoPersonal.nativeElement.value
     };
+    
+    if(this.datosGuardar.edad && this.datosGuardar.cargo && this.datosGuardar.email && this.datosGuardar.telefono && this.datosGuardar.ubicacion){
+      this.sobreMiService.datosPersonales = this.datosGuardar;
+      this.sobreMiService.modificarDatosPersonales(this.datosGuardar).subscribe();
+      this.enviarDatosPersonales.emit(this.sobreMiService.datosPersonales)
+    }
 
     this.edadPersonal.nativeElement.value = this.sobreMiService.datosPersonales.edad.toString();
     this.numeroDeTelefono.nativeElement.value = this.sobreMiService.datosPersonales.telefono.toString();
     this.correoElectronicoDatoPersonal.nativeElement.value = this.sobreMiService.datosPersonales.email.toString();
     this.ubicacionSobreMi.nativeElement.value = this.sobreMiService.datosPersonales.ubicacion.toString();
     this.cargoDatoPersonal.nativeElement.value = this.sobreMiService.datosPersonales.cargo.toString();
-
-    this.enviarDatosPersonales.emit(this.sobreMiService.datosPersonales)
   }
 
   cerrar(){

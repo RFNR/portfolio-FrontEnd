@@ -5,6 +5,7 @@
   aria-labelledby="edit-datosLabel"
   aria-hidden="true"
   data-bs-backdrop="static" data-bs-keyboard="false"
+  *ngIf="validacion"
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -26,34 +27,34 @@
           placeholder="Edad"
           class="container form-control mb-2"
           #edadPersonal
-          [value]="valorPorDefecto.valorPorDefectoEdad"
+          [value]="valorPorDefecto.edad"
         />
         <input
           type="number"
           placeholder="Numero de telefono"
           class="container form-control mb-2"
-          [value]="valorPorDefecto.valorPorDefectoTelefono"
+          [value]="valorPorDefecto.telefono"
           #numeroDeTelefono
         />
         <input
           type="email"
           placeholder="Correo electronico"
           class="container form-control mb-2"
-          [value]="valorPorDefecto.valorPorDefectoCorreo"
+          [value]="valorPorDefecto.email"
           #correoElectronicoDatoPersonal
         />
         <input
           type="text"
           placeholder="Ubicación"
           class="container form-control mb-2"
-          [value]="valorPorDefecto.valorPorDefectoUbicacion"
+          [value]="valorPorDefecto.ubicacion"
           #ubicacionSobreMi
         />
         <input
           type="text"
           placeholder="Cargo actual"
           class="container form-control mb-2"
-          [value]="valorPorDefecto.valorPorDefectoCargo"
+          [value]="valorPorDefecto.cargo"
           #cargoDatoPersonal
         />
       </div>

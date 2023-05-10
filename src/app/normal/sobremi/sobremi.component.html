@@ -1,4 +1,4 @@
-<section id="sobremi" class="sobremi">
+<section id="sobremi" class="sobremi" *ngIf="validacion">
     <div class="contenido-seccion">
         <h2>Sobre Mí</h2>
         <p class="mb-4">{{infoSobreMi}}</p>
@@ -10,23 +10,23 @@
                 <ul>
                     <li>
                         <strong>Edad</strong>
-                        25 años
+                        {{datosPersonales.edad}}
                     </li>
                     <li>
                         <strong>Teléfono</strong>
-                        3516714854
+                        {{datosPersonales.telefono}}
                     </li>
                     <li>
                         <strong>Email</strong>
-                        ronald.fernr@gmail.com
+                        {{datosPersonales.email}}
                     </li>
                     <li>
                         <strong>Ubicación</strong>
-                        Córdoba, Argentina
+                        {{datosPersonales.ubicacion}}
                     </li>
                     <li>
                         <strong>Cargo</strong>
-                        <span>FREELANCE</span>
+                        <span>{{datosPersonales.cargo}}</span>
                     </li>
                 </ul>
             </div>

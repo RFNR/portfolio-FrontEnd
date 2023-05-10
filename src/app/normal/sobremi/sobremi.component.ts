@@ -1,47 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DatosPersonales, Intereses } from 'src/app/interfaces/sobremi.interface';
+import { SobreMiService } from 'src/app/services/sobre-mi.service';
 
 @Component({
   selector: 'app-sobremi',
   templateUrl: './sobremi.component.html',
   styleUrls: ['./sobremi.component.css']
 })
-export class SobremiComponent {
-  infoSobreMi: String = `
-  Hola, soy Ronald Nogales, tengo 25 años y soy de Córdoba. Soy desarrollador web full stack.
-  Me apasiona crear soluciones digitales únicas y personalizadas a través del arte y la ciencia de la
-  programación.
-  Mi dedicación a la programación me ha permitido adquirir habilidades para transformar conceptos
-  abstractos en soluciones concretas y efectivas. Como desarrollador web full stack, soy consciente de la
-  importancia de crear sitios web y aplicaciones que no solo sean funcionales, sino también seguros y
-  escalables.
-  Creo firmemente en la importancia de aprender y crecer en mi carrera, y estoy comprometido a mantenerme
-  actualizado con las últimas tecnologías y tendencias del mercado para ofrecer siempre la mejor solución
-  para mis clientes y usuarios finales.
-  Soy consciente de que la tecnología tiene el poder de cambiar el mundo, y estoy emocionado de ser parte
-  de este cambio a través de mi trabajo. Mi objetivo es seguir explorando nuevas posibilidades en el campo
-  de la programación. Espero te guste este sitio web. Saludos!
-  `; 
+export class SobremiComponent implements OnInit{
 
-  intereses = [
-    {
-      interes:"JUEGOS", 
-      icono: "fa-solid fa-gamepad"
-    },
-    {
-      interes:"MUSICA", 
-      icono: "fa-solid fa-headphones"
-    },
-    {
-      interes:"VIAJAR", 
-      icono: "fa-solid fa-plane"
-    },
-    {
-      interes:"DEPORTE", 
-      icono: "fa-solid fa-person-hiking"
-    },
-    {
-      interes:"AUTOS", 
-      icono: "fa-solid fa-car"
-    }
-  ]
+  validacion = false;
+
+  constructor(private sobreMiService: SobreMiService){}
+  
+  ngOnInit(): void {
+    this.sobreMiService.obtenerDatosPersonales().subscribe(datos => {
+      this.sobreMiService.datosPersonales = datos[0];
+      this.datosPersonales = datos[0];
+
+      this.sobreMiService.obtenerIntereses().subscribe(datos => {
+        this.sobreMiService.intereses = datos;
+        this.intereses = datos;
+        
+        this.sobreMiService.obtenerInformacionSobrMi().subscribe(datos => {
+          this.sobreMiService.infoSobreMi = datos[0].mi_texto.toString();
+          this.infoSobreMi = datos[0].mi_texto.toString();
+
+          this.validacion = true;
+        })
+      })
+    })
+  }
+
+  datosPersonales!: DatosPersonales;
+  intereses!: Intereses[];
+  infoSobreMi!: string;
 }

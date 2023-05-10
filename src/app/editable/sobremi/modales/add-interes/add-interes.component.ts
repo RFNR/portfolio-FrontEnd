@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Intereses } from 'src/app/interfaces/sobremi.interface';
 import { SobreMiService } from 'src/app/services/sobre-mi.service';
 
 @Component({
@@ -35,17 +36,24 @@ export class AddInteresComponent {
   }
 
   guardar(){
+    let interesAgregar: Intereses = {
+      interes: this.nombreInteres.nativeElement.value, 
+      icono: this.sobreMiService.icono
+    }
     if(this.nombreInteres.nativeElement.value && this.sobreMiService.icono){
-      this.sobreMiService.intereses.push({
-        interes: this.nombreInteres.nativeElement.value, 
-        icono: this.sobreMiService.icono
-    })
+      let addInteres: any;
+      this.sobreMiService.addInteres(interesAgregar).subscribe(datos => {
+        addInteres = datos;
+        this.sobreMiService.intereses.push(addInteres)
+      });
     }
     this.resetear();
   }
+
   cerrar(){
     this.resetear();
   }
+
   resetear(){
     this.nombreInteres.nativeElement.value = "";
     for(let i = 0; this.sobreMiService.iconos.length > i ; i++){

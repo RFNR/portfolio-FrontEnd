@@ -11,6 +11,6 @@ export class DeleteInteresComponent {
   constructor(private sobreMiService: SobreMiService){}
 
   eliminar(){
-    this.sobreMiService.eliminar()
+    this.sobreMiService.eliminarIntereses(this.sobreMiService.id!).subscribe();
   }
 }
