@@ -1,0 +1,42 @@
+<section id="contacto" class="contacto">
+  <div class="contenido-seccion">
+    <h2>CONTACTO</h2>
+    <div class="fila">
+      <!-- Formulario -->
+
+      <div class="col">
+        <form action="">
+          <input type="text" placeholder="Tú Nombre" />
+          <input type="text" placeholder="Número telefónico" />
+          <input type="text" placeholder="Dirección de correo" />
+          <input type="text" placeholder="Tema" />
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Mensaje"
+          ></textarea>
+          <button class="button" type="submit">
+            Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+            <span class="overlay"></span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Mapa -->
+      <div class="col" *ngIf="validacion">
+        <iframe
+          [src]="linkIframe"
+          width="100%"
+          height="100%"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allow="geolocation"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

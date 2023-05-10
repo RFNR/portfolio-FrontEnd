@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NormalComponent } from './normal/normal.component';
+import { EditableComponent } from './editable/editable.component';
 
-import { EditableComponent } from './webpage/editable/editable.component';
-import { NormalComponent } from './webpage/normal/normal.component';
+
 
 const routes: Routes = [
   {
@@ -22,7 +23,11 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }

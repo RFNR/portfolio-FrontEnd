@@ -1,0 +1,69 @@
+<div
+  class="modal fade"
+  id="edit-proyect"
+  tabindex="-1"
+  aria-labelledby="edit-proyectLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false"
+  *ngIf="validacion"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit-proyectLabel">
+          Edite la informacion de su proyecto:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="cerrar()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Nombre"
+          class="container form-control mb-2"
+          [value]="valoresPorDefecto.nombre"
+          #nombreProyectoEdit
+        />
+        <input
+          type="text"
+          placeholder="Link"
+          class="container form-control mb-2"
+          [value]="valoresPorDefecto.link"
+          #linkProyectoEdit
+        />
+        <input
+          type="text"
+          placeholder="Descripcion breve"
+          class="container form-control mb-2"
+          [value]="valoresPorDefecto.descripcion"
+          #descripcionProyectoEdit
+        />
+        <div class="mb-3">
+          <label for="formFileSm" class="form-label"
+            >Seleccione una imagen para la vista previa del proyecto:</label
+          >
+          <input
+            class="form-control form-control-sm"
+            id="formFileSm"
+            type="file"
+            (change)="imagenObtenida($event)"
+          /><br>
+          <div class="alert alert-info" role="alert">
+            Si no selecciona una imagen, se mantendra la que ya posee. TODOS LOS DEMAS CAMPOS SON OBLIGATORIOS PARA QUE SE EFECTUE EL CAMBIO.
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

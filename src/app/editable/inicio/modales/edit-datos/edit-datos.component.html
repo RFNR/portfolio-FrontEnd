@@ -1,0 +1,48 @@
+<div
+  class="modal fade"
+  id="nombre"
+  tabindex="-1"
+  aria-labelledby="nombreLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false"
+  *ngIf="validacion"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="nombreLabel">
+          Edite su nombre completo y profesion:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="cerrar()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Nombre completo"
+          class="container form-control mb-2"
+          [value]="nombre"
+          #nombreIdentificador
+        />
+        <input
+          type="text"
+          placeholder="Profesion"
+          class="container form-control mb-2"
+          [value]="profesion"
+          #profesionIdentificador
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

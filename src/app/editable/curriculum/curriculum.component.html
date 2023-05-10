@@ -1,0 +1,85 @@
+<section id="curriculum" class="curriculum">
+  <div class="contenido-seccion">
+    <h2>Curriculum</h2>
+    <div class="fila">
+      <div class="col izquierda">
+        <button
+          type="button"
+          class="btn btn-success btn-add-edu"
+          data-bs-toggle="modal"
+          data-bs-target="#educacion"
+        >
+          Añadir +
+        </button>
+        <h3>Educación</h3>
+        <div class="item izq" *ngFor="let estudio of educacion; let i = index">
+          <button type="button" class="btn btn-primary btn-educacion-edit" data-bs-toggle="modal"
+          data-bs-target="#edit-educacion" (click)="modificarIndexEducacion([i], estudio.id)">
+            <i class="bi bi-pencil-fill"></i>
+          </button>
+          <button type="button" class="btn btn-danger btn-educacion-elim" data-bs-toggle="modal"
+          data-bs-target="#delete-educacion" (click)="modificarIndexEliminarEducacion([i], estudio.id)">
+            <i class="bi bi-trash3"></i>
+          </button>
+          <h4>{{ estudio.area }}</h4>
+          <span class="casa"> {{ estudio.establecimiento }} </span>
+          <span class="fecha"> {{ estudio.periodo }} </span>
+          <p>{{ estudio.descripcion }}</p>
+          <div class="conectori">
+            <div class="circuloi"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col derecha">
+        <button
+          type="button"
+          class="btn btn-success btn-add-exp"
+          data-bs-toggle="modal"
+          data-bs-target="#experiencia"
+        >
+          Añadir +
+        </button>
+        <h3>Experiencia</h3>
+        <div class="item der" *ngFor="let trabajo of experiencia; let i = index">
+          <button type="button" class="btn btn-primary btn-experiencia-edit" data-bs-toggle="modal"
+          data-bs-target="#edit-experiencia" (click)="modificarIndexExperiencia([i], trabajo.id)">
+            <i class="bi bi-pencil-fill"></i>
+          </button>
+          <button type="button" class="btn btn-danger btn-experiencia-elim" data-bs-toggle="modal"
+          data-bs-target="#delete-experiencia" (click)="modificarIndexEliminarExperiencia([i], trabajo.id)">
+            <i class="bi bi-trash3"></i>
+          </button>
+          <h4>{{ trabajo.cargo }}</h4>
+          <span class="casa"> {{ trabajo.lugar }} </span>
+          <span class="fecha"> {{ trabajo.periodo }} </span>
+          <p>{{ trabajo.descripcion }}</p>
+          <div class="conectord">
+            <div class="circulod"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal añadir educacion -->
+<app-add-educacion></app-add-educacion>
+
+<!-- Modal añadir experiencia -->
+<app-add-experiencia></app-add-experiencia>
+
+<!-- Modal eliminar educacion -->
+<app-delete-educacion></app-delete-educacion>
+
+<!-- Modal eliminar experiencia -->
+<app-delete-experiencia></app-delete-experiencia>
+
+<!-- Modal editar educacion -->
+<app-edit-educacion [valoresPorDefecto] = "datosEditEducacion"></app-edit-educacion>
+
+<!-- Modal editar experiencia -->
+<app-edit-experiencia [valoresPorDefecto] = "datosEditExperiencia"></app-edit-experiencia>
+
+
+

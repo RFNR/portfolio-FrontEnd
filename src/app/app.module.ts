@@ -4,8 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditableModule } from './editable/editable.module';
+import { NormalModule } from './normal/normal.module';
 
-import { WebpageModule } from './webpage/webpage.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { WebpageModule } from './webpage/webpage.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WebpageModule
+    HttpClientModule,
+    EditableModule,
+    NormalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,6 +30,9 @@ export interface Usuario{
     educacion: Educacion,
     experiencia: Experiencia,
     skills: String[],
-    
+}
 
+export interface LinkIframe{
+    id?: number,
+    src: string
 }

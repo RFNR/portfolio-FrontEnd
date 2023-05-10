@@ -1,0 +1,61 @@
+<div
+  class="modal fade"
+  id="redes"
+  tabindex="-1"
+  aria-labelledby="redesLabel"
+  aria-hidden="true"
+  *ngIf="validacion"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="redesLabel">
+          Edite los links de sus redes sociales:
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="cerrar()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Facebook"
+          class="container form-control mb-2"
+          [value]="links.facebook"
+          #facebook
+        />
+        <input
+          type="text"
+          placeholder="Instagram"
+          class="container form-control mb-2"
+          [value]="links.instagram"
+          #instagram
+        />
+        <input
+          type="text"
+          placeholder="Linkedin"
+          class="container form-control mb-2"
+          [value]="links.linkedin"
+          #linkedin
+        />
+        <input
+          type="text"
+          placeholder="Direccion de correo electronico"
+          class="container form-control mb-2"
+          [value]="links.correoElectronico"
+          #correoElectronico
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

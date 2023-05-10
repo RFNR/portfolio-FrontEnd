@@ -1,54 +1,39 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Proyectos } from '../interfaces/proyectos.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectosService {
 
-  constructor() { }
+  private url: string = "http://localhost:8080/proyectos/datos";
+  id: number | undefined = 0;
+
+  constructor(private http: HttpClient) { }
   index: number[] = [0]
-  eliminarProyecto(){
-    this.proyectos.splice(this.index[0], 1);
+
+  obtenerProyectos():Observable<Proyectos[]>{
+    return this.http.get<Proyectos[]>(`${this.url}`)
   }
-  proyectos: Proyectos[] = [
-    {
-      img: "../../../../assets/p1.jpg",
-      nombre: "Proximamente",
-      descripcion: "...",
-      link: "http://localhost:4200/"
-    },
-    {
-      img: "../../../../assets/p2.jpg",
-      nombre: "Proximamente",
-      descripcion: "...",
-      link: "http://localhost:4200/"
-    },
-    {
-      img: "../../../../assets/p3.jpg",
-      nombre: "Proximamente",
-      descripcion: "...",
-      link: "http://localhost:4200/"
-    },
-    {
-      img: "../../../../assets/p4.jpg",
-      nombre: "Proximamente",
-      descripcion: "...",
-      link: "http://localhost:4200/"
-    },
-    {
-      img: "../../../../assets/p5.jpg",
-      nombre: "Proximamente",
-      descripcion: "...",
-      link: "http://localhost:4200/"
-    },
-    {
-      img: "../../../../assets/p6.jpg",
-      nombre: "Proximamente",
-      descripcion: "...",
-      link: "http://localhost:4200/"
-    }
-  ];
+
+  addProyectos(proyecto: Proyectos): Observable<Object> {
+    return this.http.post(`${this.url}`, proyecto);
+  }
+
+  eliminarProyecto(id: number): Observable<Object>{
+    this.proyectos.splice(this.index[0], 1);
+    return this.http.delete(`${this.url}/${id}`)
+  }
+
+  modificarProyecto(id: number, proyecto: Proyectos): Observable<Proyectos> {
+    const url = `${this.url}/${id}`;
+    return this.http.put<Proyectos>(url, proyecto);
+  }
+
+  proyectos!: Proyectos[];
+
 
   extraerBase64 = async ($event: any) => {
     try {

@@ -1,0 +1,20 @@
+<section class="inicio" *ngIf="validador">
+    <img [src]="perfil.banner" alt="" class="banner">
+    <div class="contenido-banner">
+        <div class="contenedor-img">
+            <img [src]="perfil.perfil" alt="">
+        </div>
+        <h1>{{perfil.nombre}}</h1>
+        <h2>{{perfil.profesion}}</h2>
+        <div class="redes">
+            <abbr class="cursor" title="Facebook"><a href="{{links.facebook}}" target="_blank"><i
+                        class="fa-brands fa-facebook-f iconos"></i></a></abbr>
+            <abbr class="cursor" title="Instagram"><a href="{{links.instagram}}" target="_blank"><i class="fa fa-instagram"
+                        aria-hidden="true"></i></a></abbr>
+            <abbr class="cursor" title="Linkedin"><a href="{{links.linkedin}}" target="_blank"><i
+                        class="fa-brands fa-linkedin-in iconos"></i></a></abbr>
+            <abbr class="cursor" title="Correo electronico"><a href="{{links.correoElectronico}}" target="_blank"><i class="fa fa-envelope"
+                        aria-hidden="true"></i></a></abbr>
+        </div>
+    </div>
+</section>

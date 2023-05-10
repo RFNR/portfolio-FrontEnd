@@ -1,14 +1,30 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Perfil } from '../interfaces/inicio.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InicioService {
+  
+  private url: string = 'http://localhost:8080/perfiles/perfil';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  perfil = "../../../../assets/165054118_3609200115845049_5935957942657908537_n.jpg";
-  banner = "../../../../assets/pexels-pixabay-270360.jpg";
-  nombre = "RONALD NOGALES";
-  profesion = "Desarrollador Web Full Stack";
+  perfil: Perfil = {
+    perfil: "",
+    banner: "",
+    profesion: "",
+    nombre: ""
+  };
+
+  obtenerPerfil():Observable<Perfil>{
+    return this.http.get<Perfil>(`${this.url}/1`)
+  }
+  
+  modificarRegistro(perfil: Perfil): Observable<Perfil> {
+    const url = `${this.url}/1`;
+    return this.http.put<Perfil>(url, perfil);
+  }
 }

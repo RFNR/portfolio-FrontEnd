@@ -1,0 +1,70 @@
+<div class="contenedor-header" id="menu">
+  <header>
+    <div class="logo">
+      <a href="#"
+        ><img src="../../../assets/arg-prog.png" alt="" class="img-fluid"
+      /></a>
+    </div>
+    <nav id="nav" [class.responsive]="estado">
+      <ul>
+        <li><a href="#inicio" (click)="seleccionar()">INICIO</a></li>
+        <li><a href="#sobremi" (click)="seleccionar()">SOBRE MI</a></li>
+        <li><a href="#skills" (click)="seleccionar()">SKILLS</a></li>
+        <li><a href="#curriculum" (click)="seleccionar()">CURRICULUM</a></li>
+        <li><a href="#proyectos" (click)="seleccionar()">PROYECTOS</a></li>
+        <li><a href="#contacto" (click)="seleccionar()">CONTACTO</a></li>
+        <li class="border-bottom-0">
+          <button class="button" data-bs-toggle="modal" data-bs-target="#login">
+            INICIAR SESION
+            <span class="overlay"></span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-responsive" (click)="mostrarOcultarMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </header>
+</div>
+
+<!--VENTANA MODAL-->
+
+<div
+  class="modal fade"
+  id="login"
+  tabindex="-1"
+  aria-labelledby="loginLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginLabel">Inicie sesion:</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          placeholder="Nombre de usuario"
+          class="container form-control mb-2"
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          class="container form-control mb-2"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
