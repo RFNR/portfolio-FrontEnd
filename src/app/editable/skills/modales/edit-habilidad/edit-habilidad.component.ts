@@ -46,8 +46,8 @@ export class EditHabilidadComponent implements OnInit{
       habilidadSeleccionada.nombre = this.habilidad.nombre; 
       habilidadSeleccionada.porcentaje = this.habilidad.porcentaje; 
       this.skillsService.modificarHabilidad(this.skillsService.id!, habilidadSeleccionada).subscribe();
+      this.skillsService.habilidades[this.skillsService.index[0]] = habilidadSeleccionada;
       this.activarAnimacion.emit("Activar animacion");
-
     }
     this.valorDeRango = "0";
     this.rangoEdit.nativeElement.value = "0";
