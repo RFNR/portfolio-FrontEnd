@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, HostListener } from '@angular/core';
+import { Component, ElementRef, Renderer2, HostListener, OnInit } from '@angular/core';
 import { Habilidades } from 'src/app/interfaces/habilidades.interface';
 import { SkillsService } from 'src/app/services/skills.service';
 
@@ -7,12 +7,23 @@ import { SkillsService } from 'src/app/services/skills.service';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit{
+
+  validacion = false;
   
   constructor(private el: ElementRef, private skillsService: SkillsService) {
   }
+  ngOnInit(): void {
+    this.skillsService.obtenerSkillsDesdeLaBase().subscribe(datos => {
+      this.skillsService.habilidades = datos;
+      this.habilidades = datos;
+      this.habilidadesAnimadas = Array(this.habilidades.length);
+      this.validacion = true;
+    })
+  }
 
-  habilidades: Habilidades[] = this.skillsService.habilidades;
+  habilidades!: Habilidades[];
+  habilidadesAnimadas: any;
 
   obtenerHabilidades(): String[] {
     return this.skillsService.obtenerHabilidades();
@@ -20,8 +31,6 @@ export class SkillsComponent {
   obtenerPorcentajes(): String[] {
     return this.skillsService.obtenerPorcentajes();
   }
-
-  habilidadesAnimadas = Array(this.habilidades.length);
 
   @HostListener('window:scroll', ['$event'])
   scrollZone() {

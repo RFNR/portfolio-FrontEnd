@@ -34,8 +34,12 @@ export class AddHabilidadComponent {
       porcentaje: this.rango.nativeElement.value + "%"
     }
     if(this.habilidad.nombre && this.rango.nativeElement.value !== "0"){
-      this.skillsService.habilidades.push(this.habilidad) 
-      this.activarAnimacion.emit("Activar animacion");
+      let habilidadAdd: any;
+      this.skillsService.addHabilidad(this.habilidad).subscribe(datos => {
+        habilidadAdd = datos;
+        this.skillsService.habilidades.push(habilidadAdd);
+        this.activarAnimacion.emit("Activar animacion");
+      });
     }
     this.nombreHabilidad.nativeElement.value = "";
     this.rango.nativeElement.value = "0";

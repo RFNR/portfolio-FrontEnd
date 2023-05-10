@@ -9,7 +9,6 @@ import { SkillsService } from 'src/app/services/skills.service';
 export class DeleteHabilidadComponent {
   constructor(private skillsService: SkillsService){}
   eliminar(){
-    this.skillsService.eliminar();
+    this.skillsService.eliminarHabilidad(this.skillsService.id!).subscribe();
   }
-
 }

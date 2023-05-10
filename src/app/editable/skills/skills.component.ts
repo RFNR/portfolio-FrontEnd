@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Habilidades } from 'src/app/interfaces/habilidades.interface';
 import { SkillsService } from 'src/app/services/skills.service';
 
@@ -7,8 +7,9 @@ import { SkillsService } from 'src/app/services/skills.service';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit{
 
+  validacion = false;
   habilidad: Habilidades = {
     nombre: '',
     porcentaje: ''
@@ -17,7 +18,17 @@ export class SkillsComponent {
 
   constructor(private el: ElementRef, private skillsService: SkillsService) {}
 
-  habilidades: Habilidades[] = this.skillsService.habilidades;
+  ngOnInit(): void {
+    this.skillsService.obtenerSkillsDesdeLaBase().subscribe(datos => {
+      this.skillsService.habilidades = datos;
+      this.habilidades = datos;
+      this.habilidadesAnimadas = Array(this.habilidades.length);
+      this.validacion = true;
+    })
+  }
+
+  habilidades!: Habilidades[];
+  habilidadesAnimadas: any;
 
   obtenerHabilidades(): String[] {
     return this.skillsService.obtenerHabilidades();
@@ -26,18 +37,18 @@ export class SkillsComponent {
     return this.skillsService.obtenerPorcentajes();
   }
 
-  cambiarIndexEliminar(i: number[]){
+  cambiarIndexEliminar(i: number[], id: any){
     this.skillsService.index = i;
+    this.skillsService.id = id;
   }
-  cambiarIndexEditar(i: number[]){
+  cambiarIndexEditar(i: number[], id: any){
     this.skillsService.index = i;
+    this.skillsService.id = id;
     this.habilidad = {
       nombre: this.skillsService.habilidades[i[0]].nombre,
       porcentaje: this.skillsService.habilidades[i[0]].porcentaje
     }
   }
-
-  habilidadesAnimadas = Array(this.habilidades.length);
 
   activarAnimacion(event: string){
     this.habilidadesAnimadas = Array(this.skillsService.habilidades.length);
