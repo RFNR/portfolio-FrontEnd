@@ -7,12 +7,12 @@
     </div>
     <nav id="nav" [class.responsive]="estado">
       <ul>
-        <li><a href="#inicio" (click)="seleccionar()">INICIO</a></li>
-        <li><a href="#sobremi" (click)="seleccionar()">SOBRE MI</a></li>
-        <li><a href="#skills" (click)="seleccionar()">SKILLS</a></li>
-        <li><a href="#curriculum" (click)="seleccionar()">CURRICULUM</a></li>
-        <li><a href="#proyectos" (click)="seleccionar()">PROYECTOS</a></li>
-        <li><a href="#contacto" (click)="seleccionar()">CONTACTO</a></li>
+        <li><a href="/admin#inicio" (click)="seleccionar()">INICIO</a></li>
+        <li><a href="/admin#sobremi" (click)="seleccionar()">SOBRE MI</a></li>
+        <li><a href="/admin#skills" (click)="seleccionar()">SKILLS</a></li>
+        <li><a href="/admin#curriculum" (click)="seleccionar()">CURRICULUM</a></li>
+        <li><a href="/admin#proyectos" (click)="seleccionar()">PROYECTOS</a></li>
+        <li><a href="/admin#contacto" (click)="seleccionar()">CONTACTO</a></li>
         <li class="border-bottom-0">
           <button
             class="button"
@@ -43,7 +43,6 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark text-white text-center">
       <div class="modal-header">
-        <img src="../../../assets/arg-prog.png" alt="" class="img" />
         <svg
           data-bs-dismiss="modal"
           xmlns="http://www.w3.org/2000/svg"
@@ -73,6 +72,7 @@
           type="button"
           class="btn btn-danger button cancelar"
           data-bs-dismiss="modal"
+          (click)="cerrarSesion()"
         >
           Cerrar sesion
         </button>

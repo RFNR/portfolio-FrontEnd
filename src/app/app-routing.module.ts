@@ -3,18 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { NormalComponent } from './normal/normal.component';
 import { EditableComponent } from './editable/editable.component';
 import { LoginComponent } from './login/login.component';
+import { UserGuardGuard } from './guard/user-guard.guard';
+import { AdminGuardGuard } from './guard/admin-guard.guard';
 
 
 
 const routes: Routes = [
   {
-      path: 'user', /* Me posiciono en la pagina principal -> http://localhost:4200 + '' = http://localhost:4200 */ 
-      component: NormalComponent, /* Se muestra este componente en la pagina principal */
-      pathMatch: 'full'
+      path: 'user', 
+      component: NormalComponent, 
+      canActivate: [UserGuardGuard]
   },
   {
       path: 'admin',
-      component: EditableComponent
+      component: EditableComponent,
+      canActivate: [AdminGuardGuard]
   },
   {
     path: '',

@@ -7,15 +7,15 @@
     </div>
     <nav id="nav" [class.responsive]="estado">
       <ul>
-        <li><a href="#inicio" (click)="seleccionar()">INICIO</a></li>
-        <li><a href="#sobremi" (click)="seleccionar()">SOBRE MI</a></li>
-        <li><a href="#skills" (click)="seleccionar()">SKILLS</a></li>
-        <li><a href="#curriculum" (click)="seleccionar()">CURRICULUM</a></li>
-        <li><a href="#proyectos" (click)="seleccionar()">PROYECTOS</a></li>
-        <li><a href="#contacto" (click)="seleccionar()">CONTACTO</a></li>
+        <li><a href="/user#inicio" (click)="seleccionar()">INICIO</a></li>
+        <li><a href="/user#sobremi" (click)="seleccionar()">SOBRE MI</a></li>
+        <li><a href="/user#skills" (click)="seleccionar()">SKILLS</a></li>
+        <li><a href="/user#curriculum" (click)="seleccionar()">CURRICULUM</a></li>
+        <li><a href="/user#proyectos" (click)="seleccionar()">PROYECTOS</a></li>
+        <li><a href="/user#contacto" (click)="seleccionar()">CONTACTO</a></li>
         <li class="border-bottom-0">
           <button class="button" data-bs-toggle="modal" data-bs-target="#login">
-            INICIAR SESION
+            INICIAR COMO ADMINISTRADOR
             <span class="overlay"></span>
           </button>
         </li>
@@ -47,24 +47,29 @@
           aria-label="Close"
         ></button>
       </div>
+      
       <div class="modal-body">
-        <input
-          type="text"
-          placeholder="Nombre de usuario"
-          class="container form-control mb-2"
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          class="container form-control mb-2"
-        />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+          <input
+            type="text"
+            placeholder="Nombre de usuario"
+            class="container form-control mb-2"
+            formControlName="username"
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            class="container form-control mb-2"
+            formControlName="password"
+          />
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Enviar</button>
+          </div>
+        </form>
+      </div>    
     </div>
   </div>
 </div>

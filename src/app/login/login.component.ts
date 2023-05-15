@@ -32,9 +32,20 @@ export class LoginComponent {
       }
 
       this.loginService.login(datos).subscribe(data => {
+
         let response: any = data;
+
         console.log(response);
-        localStorage.setItem('token', response.accessToken)
+        
+        const tiempoExpiracion = 3600000; // 1hora
+        localStorage.setItem('token', response.accessToken);
+
+        setTimeout(() => {
+          if(localStorage.getItem('token')){
+            localStorage.removeItem('token');
+          }
+        }, tiempoExpiracion);
+
         this.router.navigateByUrl("/user");
       });
     } 
