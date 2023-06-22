@@ -1,20 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { DatosPersonales, InformacionSobreMi, Intereses } from '../interfaces/sobremi.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SobreMiService {
+export class SobreMiService implements OnInit{
 
-  private url: string = "http://localhost:8080/datospersonales/datos";
-  private urlIntereses: string = "http://localhost:8080/intereses/datos";
-  private urlIformacionSobreMi: string = "http://localhost:8080/informacionsobremi/datos";
+  private url: string = environment.baseUrl + "/datospersonales/datos";
+  private urlIntereses: string = environment.baseUrl + "/intereses/datos";
+  private urlIformacionSobreMi: string = environment.baseUrl + "/informacionsobremi/datos";
   id: number | undefined = 0;
   index = [0]
 
   constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+  }
 
   obtenerDatosPersonales():Observable<DatosPersonales[]>{
     return this.http.get<DatosPersonales[]>(`${this.url}`)
@@ -46,12 +50,12 @@ export class SobreMiService {
   datosPersonales!: DatosPersonales;
   infoSobreMi!: string;
   intereses!: Intereses[];
-
+  iconos!: string[];
  
 
   icono = "";
 
-  iconos:string[] = [
+  iconosa:string[] = [
     "bi bi-book",
     "fa-solid fa-headphones",
     "fa-solid fa-gamepad",

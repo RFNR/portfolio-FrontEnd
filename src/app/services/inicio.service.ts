@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Perfil } from '../interfaces/inicio.interface';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InicioService {
   
-  private url: string = 'http://localhost:8080/perfiles/perfil';
+  private url: string = environment.baseUrl + '/perfiles/perfil';
 
   constructor(private http: HttpClient) { }
 

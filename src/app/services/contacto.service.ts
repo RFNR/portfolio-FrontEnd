@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, firstValueFrom } from 'rxjs';
 import { LinkIframe } from '../interfaces/usuario.interface';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class ContactoService {
   constructor(private sanitizer: DomSanitizer, private http: HttpClient) { 
   }
 
-  private url: string = 'http://localhost:8080/iframe/src';
+  private url: string = environment.baseUrl + '/iframe/src';
 
   urlNoSegura: any;
 

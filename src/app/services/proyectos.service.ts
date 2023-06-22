@@ -2,13 +2,14 @@ import { Injectable, OnInit } from '@angular/core';
 import { Proyectos } from '../interfaces/proyectos.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectosService {
 
-  private url: string = "http://localhost:8080/proyectos/datos";
+  private url: string = environment.baseUrl + "/proyectos/datos";
   id: number | undefined = 0;
 
   constructor(private http: HttpClient) { }

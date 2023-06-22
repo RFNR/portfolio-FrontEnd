@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { Educacion, Experiencia } from '../interfaces/curriculum.interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurriculumService {
 
-  private url: string = 'http://localhost:8080/educacion/datos';
-  private urlExp: string = 'http://localhost:8080/experiencia/datos';
+  private url: string = environment.baseUrl + '/educacion/datos';
+  private urlExp: string = environment.baseUrl + '/experiencia/datos';
 
   constructor(private http: HttpClient) { }
 
