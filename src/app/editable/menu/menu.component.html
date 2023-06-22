@@ -7,22 +7,14 @@
     </div>
     <nav id="nav" [class.responsive]="estado">
       <ul>
-        <li><a href="/admin#inicio" (click)="seleccionar()">INICIO</a></li>
-        <li><a href="/admin#sobremi" (click)="seleccionar()">SOBRE MI</a></li>
-        <li><a href="/admin#skills" (click)="seleccionar()">SKILLS</a></li>
-        <li><a href="/admin#curriculum" (click)="seleccionar()">CURRICULUM</a></li>
-        <li><a href="/admin#proyectos" (click)="seleccionar()">PROYECTOS</a></li>
-        <li><a href="/admin#contacto" (click)="seleccionar()">CONTACTO</a></li>
-        <li class="border-bottom-0">
-          <button
-            class="button"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          >
-            CERRAR SESION
-            <span class="overlay"></span>
-          </button>
-        </li>
+        <li><a href="/editar#inicio" (click)="seleccionar()">INICIO</a></li>
+        <li><a href="/editar#sobremi" (click)="seleccionar()">SOBRE MI</a></li>
+        <li><a href="/editar#skills" (click)="seleccionar()">SKILLS</a></li>
+        <li><a href="/editar#curriculum" (click)="seleccionar()">CURRICULUM</a></li>
+        <li><a href="/editar#proyectos" (click)="seleccionar()">PROYECTOS</a></li>
+        <li><a href="/editar#contacto" (click)="seleccionar()">CONTACTO</a></li>
+        <li class="p-1 border border-2 rounded-1 border-white " data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"><a class="hover">CERRAR SESION</a></li>
       </ul>
     </nav>
     <div class="nav-responsive" (click)="mostrarOcultarMenu()">
@@ -43,6 +35,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark text-white text-center">
       <div class="modal-header">
+        <img src="../../../assets/arg-prog.png" alt="" class="img" />
         <svg
           data-bs-dismiss="modal"
           xmlns="http://www.w3.org/2000/svg"

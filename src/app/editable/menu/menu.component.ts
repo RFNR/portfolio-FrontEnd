@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
+
+
   estado: boolean = false;
 
   mostrarOcultarMenu(): void {
@@ -18,9 +20,10 @@ export class MenuComponent {
   seleccionar(): void { //oculto el menu una vez que selecciono una opcion
     this.estado = false;
   }
+
   cerrarSesion(){
-    localStorage.removeItem('tokenAdmin');
-    this.router.navigate(['/user'])
+    localStorage.removeItem('authData');
+    this.router.navigate(['/']);
   }
 }
 

@@ -26,6 +26,7 @@ export class EditExperienciaComponent {
     if(this.cargoEdit.nativeElement.value && this.lugarEdit.nativeElement.value && this.periodoExperienciaEdit.nativeElement.value && this.descripcionExperienciaEdit.nativeElement.value){
 
       let enviarExperiencia = {
+        id: this.curriculumService.id,
         cargo: this.cargoEdit.nativeElement.value,
         lugar: this.lugarEdit.nativeElement.value,
         periodo: this.periodoExperienciaEdit.nativeElement.value,

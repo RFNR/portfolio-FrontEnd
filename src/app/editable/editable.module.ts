@@ -10,8 +10,7 @@ import { ProyectosModule } from './proyectos/proyectos.module';
 import { SkillsModule } from './skills/skills.module';
 import { SobremiModule } from './sobremi/sobremi.module';
 import { NormalModule } from '../normal/normal.module';
-
-
+import { EditableRoutingModule } from './editable-routing.module';
 
 
 @NgModule({
@@ -22,6 +21,7 @@ import { NormalModule } from '../normal/normal.module';
   ],
   imports: [
     CommonModule,
+    EditableRoutingModule,
     CurriculumModule,
     InicioModule,
     ProyectosModule,

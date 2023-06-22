@@ -20,7 +20,6 @@ export class InicioComponent implements OnInit{
     this.inicioService.obtenerPerfil().subscribe(datos => {
       this.inicioService.perfil = datos;
       this.perfil = datos;
-      console.log(datos)
     });
     this.redesSociales.obtenerRedes().subscribe(datos =>{
       this.redesSociales.links = datos;

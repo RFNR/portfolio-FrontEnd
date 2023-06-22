@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, firstValueFrom } from 'rxjs';
 import { LinkIframe } from '../interfaces/usuario.interface';
-import { Formulario } from '../interfaces/contacto.interface';
 
 
 @Injectable({
@@ -15,11 +14,6 @@ export class ContactoService {
   }
 
   private url: string = 'http://localhost:8080/iframe/src';
-  private urlForm: string = 'http://localhost:8080/formulario/datos';
-
-  addFormulario(formulario: Formulario): Observable<Object> {
-    return this.http.post(`${this.urlForm}`, formulario);
-  }
 
   urlNoSegura: any;
 

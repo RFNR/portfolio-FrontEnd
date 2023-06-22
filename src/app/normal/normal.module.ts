@@ -9,7 +9,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NormalRoutingModule } from './normal-routing.module';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    NormalRoutingModule
   ], 
   exports:[
     NormalComponent,

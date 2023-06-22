@@ -26,13 +26,16 @@ export class EditEducacionComponent {
     if(this.tituloEdit.nativeElement.value && this.establecimientoEdit.nativeElement.value && this.periodoEducacionEdit.nativeElement.value && this.descripcionEducacionEdit.nativeElement.value){
       
       let enviarEducacion = {
+        id: this.curriculumService.id,
         area: this.tituloEdit.nativeElement.value,
         establecimiento: this.establecimientoEdit.nativeElement.value,
         periodo: this.periodoEducacionEdit.nativeElement.value,
         descripcion: this.descripcionEducacionEdit.nativeElement.value,
       };
+      console.log(enviarEducacion)
       this.curriculumService.educacion[this.curriculumService.index[0]] = enviarEducacion;
       this.curriculumService.modificarEducacion(this.curriculumService.id!, enviarEducacion).subscribe();
+
     }
     
   }

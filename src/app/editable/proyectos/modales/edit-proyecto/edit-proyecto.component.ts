@@ -37,6 +37,7 @@ export class EditProyectoComponent implements OnInit{
 
   guardar() {
     this.valoresPorDefecto = {
+      id: this.proyectosService.id,
       nombre: this.nombreProyectoEdit.nativeElement.value,
       descripcion: this.descripcionProyectoEdit.nativeElement.value,
       link: this.linkProyectoEdit.nativeElement.value,

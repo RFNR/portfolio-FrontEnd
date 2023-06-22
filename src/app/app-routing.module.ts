@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NormalComponent } from './normal/normal.component';
-import { EditableComponent } from './editable/editable.component';
-import { LoginComponent } from './login/login.component';
-import { UserGuardGuard } from './guard/user-guard.guard';
-import { AdminGuardGuard } from './guard/admin-guard.guard';
-
+import { AuthGuard } from './guard/guard.guard';
 
 
 const routes: Routes = [
   {
-      path: 'user', 
-      component: NormalComponent, 
-      canActivate: [UserGuardGuard]
+      path: '', 
+      loadChildren: () => import('./normal/normal.module').then( m => m.NormalModule),
+      pathMatch: 'full'
   },
   {
-      path: 'admin',
-      component: EditableComponent,
-      canActivate: [AdminGuardGuard]
+      path: 'editar',
+      loadChildren: () => import('./editable/editable.module').then( m => m.EditableModule),
+      canActivate: [AuthGuard]
   },
   {
-    path: '',
-    component: LoginComponent
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginModule)
   },
   {
-      path: '**', /* http://localhost:4200/cualquiercosa te redirije a http://localhost:4200 */
+      path: '**',
       redirectTo: ''
   }
 ]

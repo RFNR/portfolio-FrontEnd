@@ -5,15 +5,23 @@
       <!-- Formulario -->
 
       <div class="col">
-        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
-          <input type="text" placeholder="Tú Nombre" formControlName="nombre" required>
-          <input type="text" placeholder="Número telefónico" formControlName="telefono" required>
-          <input type="text" placeholder="Dirección de correo" formControlName="direccion" required>
-          <input type="text" placeholder="Tema" formControlName="tema" required>
-          <textarea name="mensaje" cols="30" rows="10" placeholder="Mensaje" formControlName="mensaje" required></textarea>
-          <button class="button" type="submit">Enviar Mensaje <i class="fa-solid fa-paper-plane"></i><span class="overlay"></span></button>
+        <form action="">
+          <input type="text" placeholder="Tú Nombre" />
+          <input type="text" placeholder="Número telefónico" />
+          <input type="text" placeholder="Dirección de correo" />
+          <input type="text" placeholder="Tema" />
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Mensaje"
+          ></textarea>
+          <button class="button" type="submit">
+            Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+            <span class="overlay"></span>
+          </button>
         </form>
-        
       </div>
 
       <!-- Mapa -->

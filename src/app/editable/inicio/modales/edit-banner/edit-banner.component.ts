@@ -18,9 +18,7 @@ export class EditBannerComponent {
     if(this.bannerUpload.nativeElement.value){
       this.inicioService.perfil.banner = this.imagen || this.inicioService.perfil.banner;
       this.enviarDatos.emit(this.inicioService.perfil.banner);
-      console.log(this.inicioService.perfil.banner)
-      this.inicioService.modificarRegistro(this.inicioService.perfil).subscribe(data => {
-      });
+      this.inicioService.modificarRegistro(this.inicioService.perfil).subscribe();
     }
     this.bannerUpload.nativeElement.value = "";
   }

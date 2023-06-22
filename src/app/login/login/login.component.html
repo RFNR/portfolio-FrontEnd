@@ -1,0 +1,21 @@
+<div class="col-12 col-lg-6 p-4 container">
+    <div class="border p-4 m-4">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="container p-1"><h1>Login</h1></div>
+        <hr>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" formControlName="username">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+        </div>
+        <div class="alert alert-danger mb-3" role="alert" *ngIf="validador">
+          {{errorMessage}}
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+      </form>
+    </div>
+  </div>
+  
