@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { DatosPersonales, InformacionSobreMi, Intereses } from '../interfaces/sobremi.interface';
+import { DatosPersonales, Iconos, InformacionSobreMi, Intereses } from '../interfaces/sobremi.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -7,18 +7,24 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SobreMiService implements OnInit{
+export class SobreMiService {
+
+  datosPersonales!: DatosPersonales;
+  infoSobreMi!: string;
+  intereses!: Intereses[];
 
   private url: string = environment.baseUrl + "/datospersonales/datos";
   private urlIntereses: string = environment.baseUrl + "/intereses/datos";
   private urlIformacionSobreMi: string = environment.baseUrl + "/informacionsobremi/datos";
+  private urlIconos: string = environment.baseUrl + "/iconos/datos"
+
   id: number | undefined = 0;
   index = [0]
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
+  constructor(private http: HttpClient) { 
   }
+
+ 
 
   obtenerDatosPersonales():Observable<DatosPersonales[]>{
     return this.http.get<DatosPersonales[]>(`${this.url}`)
@@ -46,16 +52,11 @@ export class SobreMiService implements OnInit{
   obtenerInformacionSobrMi():Observable<InformacionSobreMi[]>{
     return this.http.get<InformacionSobreMi[]>(`${this.urlIformacionSobreMi}`)
   }
-
-  datosPersonales!: DatosPersonales;
-  infoSobreMi!: string;
-  intereses!: Intereses[];
-  iconos!: string[];
- 
+  
 
   icono = "";
 
-  iconosa:string[] = [
+  iconos:string[] = [
     "bi bi-book",
     "fa-solid fa-headphones",
     "fa-solid fa-gamepad",

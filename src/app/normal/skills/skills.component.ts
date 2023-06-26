@@ -8,6 +8,8 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent implements OnInit{
+
+  complete: boolean = false;
   
   constructor(private el: ElementRef, private skillsService: SkillsService) {
   }
@@ -16,6 +18,7 @@ export class SkillsComponent implements OnInit{
       this.skillsService.habilidades = datos;
       this.habilidades = datos;
       this.habilidadesAnimadas = Array(this.habilidades.length);
+      this.complete = true;
     })
   }
 
@@ -35,7 +38,7 @@ export class SkillsComponent implements OnInit{
     let skills = this.el.nativeElement.querySelector('#skills');
     let distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
 
-    if (distancia_skills >= 300) {
+    if (distancia_skills >= 300 && this.complete) {
 
       for (let i = 0; this.habilidadesAnimadas.length > i; i++) {
         this.habilidadesAnimadas[i] = true;

@@ -12,6 +12,7 @@ export class AddInteresComponent {
   @ViewChild('nombreInteres') nombreInteres!: ElementRef<HTMLInputElement>;
 
   constructor(private sobreMiService: SobreMiService){
+    
   }
 
   iconos: string[] = this.sobreMiService.iconos;
