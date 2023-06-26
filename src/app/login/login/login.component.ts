@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,7 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.http.post('http://localhost:8080/login', this.loginForm.value).subscribe(datos => {
+      this.http.post(environment.baseUrl + '/login', this.loginForm.value).subscribe(datos => {
 
         let token: any = datos
         localStorage.setItem('authData', token.token)
