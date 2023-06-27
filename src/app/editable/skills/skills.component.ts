@@ -15,6 +15,7 @@ export class SkillsComponent implements OnInit{
     porcentaje: ''
   }
   index: number = 0;
+  complete: boolean = false;
 
   constructor(private el: ElementRef, private skillsService: SkillsService) {}
 
@@ -24,6 +25,7 @@ export class SkillsComponent implements OnInit{
       this.habilidades = datos;
       this.habilidadesAnimadas = Array(this.habilidades.length);
       this.validacion = true;
+      this.complete = true;
     })
   }
 
@@ -61,7 +63,7 @@ export class SkillsComponent implements OnInit{
     let skills = this.el.nativeElement.querySelector('#skills');
     let distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
 
-    if (distancia_skills >= 300) {
+    if (distancia_skills >= 300 && this.complete) {
 
       for (let i = 0; this.habilidadesAnimadas.length > i; i++) {
         this.habilidadesAnimadas[i] = true;
