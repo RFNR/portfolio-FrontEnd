@@ -61,26 +61,32 @@ export class SkillsComponent implements OnInit{
   scrollZone() {
     
     let skills = this.el.nativeElement.querySelector('#skills');
-    let distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
+    
+    if(this.complete){
 
-    if (distancia_skills >= 300 && this.complete) {
+          let distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
 
-      for (let i = 0; this.habilidadesAnimadas.length > i; i++) {
-        this.habilidadesAnimadas[i] = true;
-        const style = document.createElement('style');
-        style.innerHTML = `
-                          .skills .skill .${this.obtenerHabilidades()[i]}{
-                            width: 0%;
-                            animation: 2s ${this.obtenerHabilidades()[i]} forwards;
-                          }
-                          
-                          @keyframes ${this.obtenerHabilidades()[i]} {
-                            0%{width: 0%;}
-                            100%{width: ${this.obtenerPorcentajes()[i]};}
-                          }
-`;
-        document.head.appendChild(style);
-      }
+          if (distancia_skills >= 300) {
+
+            for (let i = 0; this.habilidadesAnimadas.length > i; i++) {
+              this.habilidadesAnimadas[i] = true;
+              const style = document.createElement('style');
+              style.innerHTML = `
+                                .skills .skill .${this.obtenerHabilidades()[i]}{
+                                  width: 0%;
+                                  animation: 2s ${this.obtenerHabilidades()[i]} forwards;
+                                }
+                                
+                                @keyframes ${this.obtenerHabilidades()[i]} {
+                                  0%{width: 0%;}
+                                  100%{width: ${this.obtenerPorcentajes()[i]};}
+                                }
+      `;
+              document.head.appendChild(style);
+            }
+          }
     }
+
+    
   }
 }
